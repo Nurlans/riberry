@@ -1,0 +1,18 @@
+.price-info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  //justify-content: space-evenly;
+}
+
+@media screen and(max-width: 600px) {
+  .price-info-wrapper {
+    width: 95%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0 auto;
+
+
+  }
+
+}

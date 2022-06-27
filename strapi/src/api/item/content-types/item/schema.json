@@ -1,0 +1,116 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "singularName": "item",
+    "pluralName": "items",
+    "displayName": "item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "place_type": {
+      "type": "enumeration",
+      "enum": [
+        "Living room",
+        "Hall",
+        "Kitchen",
+        "Bedroom",
+        "Boy's room",
+        "Girl's room",
+        "Гендерно-нейтральная детская комната",
+        "Restroom",
+        "Bathroom",
+        "Wardrobe",
+        "Studio room",
+        "Pantry",
+        "Кладовая",
+        "Cabinet",
+        "Balcony",
+        "Mansard",
+        "Private xamam",
+        "Stairs",
+        "Столовая",
+        "Игровая комната",
+        "Библиотека",
+        "Тренажерный зал"
+      ]
+    },
+    "place_style": {
+      "type": "enumeration",
+      "enum": [
+        "Classic",
+        "Neoclassic",
+        "Modern",
+        "Loft",
+        "Minimalism",
+        "American-style",
+        "Art-Deco",
+        "Vanguard",
+        "Provence",
+        "Rococo",
+        "Scandinavian style",
+        "Eclecticism",
+        "Eco style",
+        "Fusion",
+        "Neo-baroque",
+        "Oriental style",
+        "High-tech",
+        "Contemporary",
+        "English style",
+        "French country",
+        "Chalet",
+        "French classics",
+        "Modern style"
+      ]
+    },
+    "area": {
+      "type": "integer"
+    },
+    "country": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "blockForm": {
+      "type": "enumeration",
+      "enum": [
+        "leftFive",
+        "rightFive",
+        "topThree",
+        "rightBigFive",
+        "leftBigFive"
+      ],
+      "required": false
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "kind_of_place": {
+      "type": "enumeration",
+      "enum": [
+        "interior",
+        "public",
+        "landscape",
+        "realization"
+      ],
+      "required": true,
+      "default": "interior"
+    }
+  }
+}

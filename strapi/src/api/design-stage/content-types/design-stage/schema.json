@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "design_stages",
+  "info": {
+    "singularName": "design-stage",
+    "pluralName": "design-stages",
+    "displayName": "designStage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stage": {
+      "type": "string"
+    },
+    "stage_image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "stage_description": {
+      "type": "richtext"
+    },
+    "stage_title": {
+      "type": "string"
+    }
+  }
+}

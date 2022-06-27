@@ -1,0 +1,30 @@
+.blogs {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 0 20px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.blog {
+  width: 32%;
+
+  &-image {
+    width: 100%;
+  }
+
+  &-date {
+    padding-top: 5px;
+  }
+
+}
+
+@media screen and(max-width: 600px) {
+  .blog {
+    width: 48%;
+  }
+}

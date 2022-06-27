@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "place_styles",
+  "info": {
+    "singularName": "place-style",
+    "pluralName": "place-styles",
+    "displayName": "place_style"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
