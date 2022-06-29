@@ -28,7 +28,9 @@ const Contacts = () => {
                     width="800" height="450" style={{border: 0}} allowFullScreen={true} loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"></iframe>
                 <h4 className='contacts-our-projects'> Наши проекты </h4>
-                <div className='slider__wrapper'><SliderComponent sliderItems={sliderItems}/></div>
+                <div className='slider__wrapper'>
+                    <SliderComponent sliderItems={sliderItems}/>
+                </div>
             </div>
         </>
     );

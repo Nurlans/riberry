@@ -16,3 +16,15 @@ export interface IPhoto {
         path: string
     },
 }
+
+export interface IPhotoTotalInfo {
+    "data": IPhoto[],
+    "meta": {
+        "pagination": {
+            "page": number,
+            "pageSize": number,
+            "pageCount": number,
+            "total": number
+        }
+    }
+}

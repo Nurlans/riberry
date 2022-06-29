@@ -1,12 +1,13 @@
 import {createAction, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IPhoto} from "../../models/IPhoto";
+import {IPhoto, IPhotoTotalInfo} from "../../models/IPhoto";
 import {fetchPhotos} from "./ActionCreators";
 
 interface PhotoState {
     photos: IPhoto[],
     isLoading: boolean,
     error: string,
-    selectedNavPage: string
+    selectedNavPage: string,
+    pageCount: number
 }
 
 
@@ -14,10 +15,10 @@ const initialState: PhotoState = {
     photos: [],
     isLoading: false,
     error: '',
-    selectedNavPage: '/interior'
+    selectedNavPage: '/interior',
+    pageCount: 0
 }
 
-// const selectNavPage = createAction(SELECT_NAV_PAGE)
 
 export const photoSlice = createSlice({
     name: 'photos',
@@ -26,17 +27,35 @@ export const photoSlice = createSlice({
         photosByFilterFetching(state) {
             state.isLoading = true
         },
-        photosByFilterFetchingSuccess(state, action: PayloadAction<IPhoto[]>) {
+        photosByFilterFetchingSuccess(state, action: PayloadAction<IPhotoTotalInfo>) {
             state.isLoading = false
             state.error = ''
-            state.photos = action.payload
+            state.photos = action.payload.data
+            state.pageCount = action.payload.meta.pagination.pageCount
         },
         photosByFilterFetchingError(state, action: PayloadAction<IPhoto[]>) {
+            state.isLoading = false
+        },
+        photosByPaginationFetching(state) {
+            state.isLoading = true
+        },
+        photosByPaginationFetchingSuccess(state, action: PayloadAction<IPhotoTotalInfo>) {
+            state.error = ''
+            state.photos = state.photos.concat(action.payload.data)
+            state.pageCount = action.payload.meta.pagination.pageCount
+            state.isLoading = false
+        },
+        photosByPaginationFetchingError(state, action: PayloadAction<IPhoto[]>) {
             state.isLoading = false
         },
         selectNavPage: (state, action: PayloadAction<string>) => {
             state.selectedNavPage = action.payload
             // state.isLoading = false
+        },
+        clearState: (state, action: PayloadAction<string>) => {
+            state.isLoading = true
+            state.photos = []
+            state.isLoading = false
         },
     },
     // extraReducers: (builder) => {

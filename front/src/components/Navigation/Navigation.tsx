@@ -9,7 +9,7 @@ import {
 } from "../../utils/enum";
 import {useTranslation} from "react-i18next";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {openBurgerMenu, openFilterMenu} from "../../store/reducers/ActionCreators";
+import {clearPhotoState, openBurgerMenu, openFilterMenu} from "../../store/reducers/ActionCreators";
 import './Navigation.scss'
 
 
@@ -26,7 +26,8 @@ interface NavigationProps {
     showAllStyleFilters?: boolean
     showAllTypeFilters?: boolean
     setShowAllStyleFilters?: (item: boolean) => void
-    setShowAllTypeFilters?: (item: boolean) => void
+    setShowAllTypeFilters?: (item: boolean) => void,
+    setPage?:(i:number)=>void
 }
 
 const Navigation = ({
@@ -38,6 +39,7 @@ const Navigation = ({
                         showAllTypeFilters = false,
                         setShowAllTypeFilters = () => null,
                         setShowAllStyleFilters = () => null,
+                        setPage = () => null
                     }: NavigationProps) => {
 
     const {t} = useTranslation();
@@ -54,6 +56,7 @@ const Navigation = ({
     const [showTypes, setShowTypes] = useState(false)
     const [showStyles, setShowStyles] = useState(false)
     const {burgerMenu, showFilter} = useAppSelector(state => state.burgerMenuReducer)
+
     const handleChange = (event: any, type: string) => {
         const {target: {value}} = event
         if (type === 'selectedType') {
@@ -107,7 +110,10 @@ const Navigation = ({
                                     <ul style={showAllTypeFilters ? {maxHeight: '100vh'} : {maxHeight: '24vh'}}
                                         className='filter-place-type'>
                                         {selectedType.length > 0 &&
-                                            <div onClick={() => setSelectedType([])}
+                                            <div onClick={() => {
+                                                setSelectedType([])
+                                                dispatch(clearPhotoState())
+                                            }}
                                                  className='filter-place-type__cancel'>
                                                 <u>Отменить всё</u>
                                             </div>
@@ -117,7 +123,10 @@ const Navigation = ({
                                             interiorPlaceType.map((type: { id: number, value: string }) => (
                                                 <li key={type.id}>
                                                     <input value={type.value}
-                                                           onChange={(e) => handleChange(e, 'selectedType')}
+                                                           onChange={(e) => {
+                                                               handleChange(e, 'selectedType')
+                                                               setPage(1)
+                                                           }}
                                                            checked={!!selectedType.find(item => item === type.value)}
                                                            type="checkbox"/>{type.value}
                                                 </li>
@@ -173,7 +182,11 @@ const Navigation = ({
                                     <ul style={showAllStyleFilters ? {maxHeight: '100vh'} : {maxHeight: '24vh'}}
                                         className='filter-place-type'>
                                         {selectedStyle.length > 0 &&
-                                            <div onClick={() => setSelectedStyle([])}
+                                            <div onClick={() => {
+                                                setSelectedStyle([])
+                                                dispatch(clearPhotoState())
+
+                                            }}
                                                  className='filter-place-type__cancel'>
                                                 <u>Отменить всё</u>
                                             </div>
@@ -218,6 +231,7 @@ const Navigation = ({
                                 }
                                 <button className='show-all-filter-btn' onClick={() => {
                                     setShowAllStyleFilters(true)
+
                                 }}>
                                     {!showAllStyleFilters && showStyles && <u>Ещё</u>}
                                 </button>

@@ -53,9 +53,11 @@
   font-size: 16px;
   //padding: 0 40px 0 auto;
 }
-.mobile-filter-btn{
+
+.mobile-filter-btn {
   display: none;
 }
+
 @media screen and(max-width: 600px) {
   .navigation-menu {
     display: none;
@@ -87,7 +89,7 @@
     height: 50px;
     cursor: pointer;
   }
-  .mobile-filter-btn{
+  .mobile-filter-btn {
     display: block;
     position: absolute;
     left: 80%;
@@ -127,9 +129,16 @@
 
 }
 
-.header__slider *{
-  height: 30px;
+.header__slider * {
+  height: 55px;
+
+  .slick-slide, .slick-active, .slick-current {
+    //max-width: 250px !important;
+    //min-width: 220px !important;
+    padding: 0 10px;
+  }
 }
+
 // remove dotted firefox border
 @-moz-document url-prefix() {
   select {

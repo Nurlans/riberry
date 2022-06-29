@@ -2,6 +2,7 @@
   //min-width: 1000px;
   margin: 0 auto;
   flex: auto;
+  max-width: 84%;
 
   &__title {
     color: #FFDDBA;
@@ -42,10 +43,9 @@
   }
 }
 
-//.slider__wrapper * {
-//  height: 150px;
-//  margin-bottom: 20px;
-//}
+.slider__wrapper  {
+  //max-width: 90vw;
+}
 
 .maps {
   max-width: 100%;

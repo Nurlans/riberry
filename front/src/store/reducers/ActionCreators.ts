@@ -19,6 +19,10 @@ export const openFilterMenu = (value: boolean) => ({
     type: "burger/openFilter",
     payload: value,
 })
+export const clearPhotoState=()=>({
+    type: "photos/clearState",
+
+})
 
 export const fetchPhotos = createAsyncThunk(
     'photo/fetchAll',
@@ -35,17 +39,29 @@ export const fetchPhotoById = createAsyncThunk(
     }
 )
 
-export const fetchPhotosByFilter = (selectedType: string[], selectedStyle: string[], selectedPage?: string) => async (dispatch: AppDispatch) => {
-    console.log('fetchPhotosByFilter')
+export const fetchPhotosByFilter = (selectedType: string[], selectedStyle: string[], selectedPage?: string,page?:number) => async (dispatch: AppDispatch) => {
     try {
         const typeFilter = selectedType.join('&filters[place_type]=')
         const styleFilter = selectedStyle?.join('&filters[place_style]=')
         const selectedFilter = selectedPage?.substring(1) || ''
         dispatch(photoSlice.actions.photosByFilterFetching())
-        const response = await axios.get(baseUrl + `items?${typeFilter?.length > 0 ? `filters[place_type]=` + typeFilter : ''}${styleFilter?.length > 0 ? `&filters[place_style]=` + styleFilter : ''}${selectedFilter?.length > 0 ? `&filters[kind_of_place]=` + selectedFilter : ''}&populate=*`)
-        dispatch(photoSlice.actions.photosByFilterFetchingSuccess(response.data?.data))
+        const response = await axios.get(baseUrl + `items?${typeFilter?.length > 0 ? `filters[place_type]=` + typeFilter : ''}${styleFilter?.length > 0 ? `&filters[place_style]=` + styleFilter : ''}${selectedFilter?.length > 0 ? `&filters[kind_of_place]=` + selectedFilter : ''}&pagination[page]=${page}&pagination[pageSize]=10&populate=*`)
+        dispatch(photoSlice.actions.photosByFilterFetchingSuccess(response.data))
     } catch (e: any) {
         dispatch(photoSlice.actions.photosByFilterFetchingError(e.message))
+    }
+}
+
+export const photosByPagination = (selectedType: string[], selectedStyle: string[], selectedPage?: string,page?:number) => async (dispatch: AppDispatch) => {
+    try {
+        const typeFilter = selectedType.join('&filters[place_type]=')
+        const styleFilter = selectedStyle?.join('&filters[place_style]=')
+        const selectedFilter = selectedPage?.substring(1) || ''
+        dispatch(photoSlice.actions.photosByPaginationFetching())
+        const response = await axios.get(baseUrl + `items?${typeFilter?.length > 0 ? `filters[place_type]=` + typeFilter : ''}${styleFilter?.length > 0 ? `&filters[place_style]=` + styleFilter : ''}${selectedFilter?.length > 0 ? `&filters[kind_of_place]=` + selectedFilter : ''}&pagination[page]=${page}&pagination[pageSize]=10&populate=*`)
+        dispatch(photoSlice.actions.photosByPaginationFetchingSuccess(response.data))
+    } catch (e: any) {
+        dispatch(photoSlice.actions.photosByPaginationFetchingError(e.message))
     }
 }
 

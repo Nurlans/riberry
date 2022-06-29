@@ -13,6 +13,7 @@ const SliderComponent = ({sliderItems}: any) => {
         swipeToSlide: true,
     };
     return (
+        // <div></div>
         <Slider {...settings}>
             {sliderItems.map((item: string) => (
                 <img src={baseUrl + item} alt=""/>
