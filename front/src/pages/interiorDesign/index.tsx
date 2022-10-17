@@ -7,14 +7,14 @@ import {fetchServicePricesStages} from "../../store/reducers/ActionCreators";
 import {IStage} from "../../models/IStages";
 
 const priceBlocks = [
-    {id: 1, title: 'Планировочное  (1 м²)', price: 12, moreInfo: false},
+    {id: 11, title: 'Планировочное  (1 м²)', price: 12, moreInfo: false},
     {
-        id: 2, title: '3D Визуализация  (1 м²)', price: 27, moreInfo: true,
+        id: 2, title: '3D Визуализация  (1 м²)', price: 0, moreInfo: true,
         to100: '27', from100to200: '18', from200: 'Договор'
     },
     {
         id: 3, title: 'Полный дизайн-проект  (1 м²)',
-        price: 35,
+        price: 0,
         moreInfo: true,
         to100: '35',
         from100to200: '25',
@@ -29,10 +29,10 @@ const InteriorDesign = () => {
     }, [])
     return (
 
-        <div>
+        <>
             <div className='price-info-wrapper'>
                 {priceBlocks.map(priceItem => (
-                    <PriceInfoBlock key={priceItem.id} to100={priceItem.to100} from200={priceItem.from200}
+                    <PriceInfoBlock id={priceItem.id} key={priceItem.id} to100={priceItem.to100} from200={priceItem.from200}
                                     from100to200={priceItem.from100to200} title={priceItem.title}
                                     price={priceItem.price} moreInfo={priceItem.moreInfo}/>
                 ))}
@@ -45,7 +45,7 @@ const InteriorDesign = () => {
                     ))
                 }
             </div>
-        </div>
+        </>
     );
 };
 

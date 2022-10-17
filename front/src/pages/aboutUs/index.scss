@@ -1,84 +1,174 @@
 .about-us {
-  width: 90%;
+	width: 84%;
 
-  p {
-    padding-bottom: 17px;
-  }
+	p {
+		padding-bottom: 17px;
+	}
 
-  &-top__body {
-    display: flex;
-    justify-content: space-between;
+	&-top__body {
+		display: flex;
+		justify-content: space-between;
 
-    &-left {
-      width: 50%;
-    }
+		&-left {
+			width: 70%;
+			padding-right: 40px;
+		}
 
-    &-title {
-      padding-bottom: 40px;
-    }
-  }
+		&-title {
+			font-size: 16px;
+			padding-bottom: 40px;
+		}
+	}
 
-  &-bottom__body {
-    display: flex;
-    padding-top: 5rem;
+	&-bottom__body {
+		display: flex;
+		margin: 71px 0;
+		//padding: 5rem 0 2rem 0;
+		height: fit-content;
 
-    &-right {
-      padding: 0 40px
-    }
+		&-right {
+		}
 
-    &-left {
-      width: 100%;
-      position: relative;
-      padding-bottom: 50%;
+		&-left {
+			width: 85%;
 
-      img {
-        display: block;
-        max-width: 100%;
-        position: absolute;
-        //object-fit: cover;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        //height: 100%;
-      }
-    }
+			img {
+				width: 92%;
+			}
 
-    &__name {
-      color: rgba(255, 221, 186, 1)
-    }
+			//img {
+			//  display: block;
+			//  max-width: 100%;
+			//  position: absolute;
+			//  //object-fit: cover;
+			//  top: 0;
+			//  bottom: 0;
+			//  left: 0;
+			//  right: 0;
+			//  width: 100%;
+			//  //height: 100%;
+			//}
+		}
 
-    h2, h1 {
-      padding-bottom: 18px;
-    }
+		&__name {
+			color: rgba(255, 221, 186, 1);
+		}
 
-  }
+		h2,
+		h1 {
+			padding-bottom: 18px;
+		}
+	}
+}
+.mobile-title {
+	display: none;
+}
+.about-us-bottom__body-right__title-mobile {
+	display: none;
+}
+
+@media screen and(max-width: 1024px) {
+	.about-us {
+		width: 95%;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+	}
+	.big-top-three {
+		width: 54%;
+	}
+	.about-us {
+		&-top {
+			&__body {
+				&-title {
+					padding-bottom: 20px;
+					font-family: Gothic A1;
+					font-size: 24px;
+					font-weight: 700;
+					line-height: 30px;
+					letter-spacing: 0em;
+					text-align: left;
+				}
+			}
+		}
+		&-bottom {
+			&__body {
+				margin: 50px 0;
+				&-right {
+					width: 60%;
+
+					&__title {
+						font-family: Gothic A1;
+						font-size: 24px;
+						font-weight: 700;
+						line-height: 30px;
+						letter-spacing: 0em;
+						text-align: left;
+					}
+				}
+			}
+		}
+	}
 }
 
 @media screen and(max-width: 600px) {
-  .about-us {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
+	.mobile-title {
+		display: flex;
+		font-family: 'Gothic A1', sans-serif;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 20px;
 
-    .big-top-three {
-      width: 100%;
-      padding: 0;
-    }
+		color: #ffffff;
+	}
+	.about-us {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0 auto;
 
-    &-top__body {
-      flex-direction: column;
-      align-items: center;
+		.big-top-three {
+			display: none;
+		}
 
-      &-left {
-        width: 100%;
-      }
-    }
+		&-top__body {
+			flex-direction: column;
+			align-items: center;
 
-    &-bottom__body {
-      padding-top: 2rem;
-    }
-  }
+			&-title {
+				padding-bottom: 24px;
+			}
+
+			&-left {
+				width: 100%;
+				font-size: 14px;
+				padding-right: 0;
+			}
+		}
+		&-bottom {
+			&__body {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 20px 0;
+				&__name {
+					padding-top: 20px;
+					font-family: 'Gothic A1';
+					font-style: normal;
+					font-weight: 600;
+					font-size: 16px;
+					line-height: 20px;
+					color: #ffddba;
+				}
+
+				&-right {
+					width: 95%;
+					&__title {
+						display: none;
+					}
+				}
+			}
+		}
+	}
 }

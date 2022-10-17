@@ -1,19 +1,26 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import photoReducer from './reducers/photoSlice'
 import photoByIdReducer from './reducers/PhotoByIdSlice'
 import aboutUsReducer from '../store/reducers/AboutUsSlice'
 import stageReducer from '../store/reducers/ServicePricesSlice'
 import blogsReducer from '../store/reducers/BlogsSlice'
 import blogReducer from '../store/reducers/BlogSlice'
+import filterReducer from '../store/reducers/FilterSlice'
 import burgerMenuReducer from '../store/reducers/BurgerMenuSlice'
 
-
 const rootReducer = combineReducers({
-    photoByIdReducer, blogReducer, burgerMenuReducer, photoReducer, aboutUsReducer, stageReducer, blogsReducer
+	blogReducer,
+	photoReducer,
+	stageReducer,
+	blogsReducer,
+	filterReducer,
+	aboutUsReducer,
+	photoByIdReducer,
+	burgerMenuReducer
 })
 
 export const setupStore = () => {
-    return configureStore({reducer: rootReducer})
+	return configureStore({ reducer: rootReducer })
 }
 
 export type RootState = ReturnType<typeof rootReducer>

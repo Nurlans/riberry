@@ -1,8 +1,5 @@
 @import "src/variables";
 
-footer * {
-  background-color: #282828 !important;
-}
 
 .footer {
   background-image: url("../../assets/footer_image.jpg");
@@ -13,36 +10,55 @@ footer * {
   &-body {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+    align-items: flex-end;
+    padding: 37px 20px 10px 20px;
+    margin-top: 1px;
+    border-top: 1px solid rgba(98, 98, 98, 1) ;
 
     &__left {
+      p {
+        display: flex;
+        align-items: center;
 
-    }
 
-    &__right {
-      display: flex;
-
-      a, img {
-        background: $gold-color !important;
       }
 
-      a {
-        width: 36px;
-        height: 36px;
+      .footer-contact {
+        padding-left: 5px;
+
+        a {
+          padding-left: 15px;
+        }
+      }
+
+      .footer-contact:nth-child(3){
+        padding-bottom: 25px;
+      }
+      .footer-social {
+        background: $gold-color !important;
+
+        img {
+          background: $gold-color !important;
+
+        }
+      }
+
+      .footer-social {
+        width: 30px;
+        height: 30px;
         display: flex;
         border-radius: 50%;
-        //border: 1px solid red;
         justify-content: center;
         align-items: center;
         margin: 0 5px;
 
         img {
+          border-radius: 50%;
           background: grey;
         }
       }
 
-      a:hover {
+      .footer-social:hover {
         background: #de8773 !important;
 
         img {
@@ -51,17 +67,24 @@ footer * {
       }
     }
 
+    &__right {
+      display: flex;
+
+
+    }
+
 
   }
 
   &__title {
-    color: #dd8774;
-    text-transform: uppercase;
-    font-size: 12pt;
+    color: $gold-color;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   &-telephone, &-email {
-    color: #ffddba;
     font-size: 10pt;
     padding-bottom: 5px;
     text-decoration: none;
@@ -69,3 +92,8 @@ footer * {
 
 }
 
+@media screen and(max-width: 600px) {
+  footer {
+    display: none;
+  }
+}

@@ -1,5 +1,5 @@
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
 
 //.slick-list, .slick-track, .slick-slide, .slick-cloned {
 //  height: 30px
@@ -18,10 +18,17 @@
 //
 //}
 //
-
+.read-more {
+	cursor: pointer;
+	color: rgba(255, 221, 186, 1);
+	//font-size: 13px;
+}
 .design {
-  text-decoration: none;
-  //height: 40px;
-  //width: fit-content;
-  //justify-content: center;
+	text-decoration: none;
+	//height: 40px;
+	//width: fit-content;
+	//justify-content: center;
+}
+.selectedType {
+	border-bottom: 1px solid #fff;
 }

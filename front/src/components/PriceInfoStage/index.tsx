@@ -18,7 +18,13 @@ const PriceInfoStage = ({stage}: PriceInfoStageProps) => {
                 </div>
             </div>
             <div className='stage-body'>
+
                 <div className='stage-body__left'>
+                    <div className='stage-number-large'>
+                        <div>
+                            ЭТАП {stage.attributes.stage}
+                        </div>
+                    </div>
                     <div className='stage-title'>
                         {stage.attributes.stage_title}
                     </div>
@@ -26,7 +32,7 @@ const PriceInfoStage = ({stage}: PriceInfoStageProps) => {
                         {stage.attributes.stage_description}
                     </ReactMarkdown>
                 </div>
-                <div>
+                <div className='stage-body__right'>
                     <img src={baseUrl + stage.attributes.stage_image.data[0].attributes.url} alt=""/>
                 </div>
             </div>

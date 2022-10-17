@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {fetchBlogs} from "./ActionCreators";
-import {IBlogs} from "../../models/Blogs";
+import {IBlogs} from "../../models/IBlogs";
 
 interface BlogsState {
     isLoading: boolean,
