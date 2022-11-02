@@ -1,190 +1,358 @@
+@import 'src/variables';
+//.about-us {
+//	//width: 84%;
+//
+//	p {
+//		padding-bottom: 17px;
+//	}
+//
+//	&-top__body {
+//		display: flex;
+//		justify-content: space-between;
+//
+//		&-left {
+//			width: 70%;
+//			padding-right: 40px;
+//		}
+//
+//		&-title {
+//			font-size: 16px;
+//			padding-bottom: 40px;
+//		}
+//	}
+//
+//	&-bottom__body {
+//		display: flex;
+//		margin: 71px 0;
+//		//padding: 5rem 0 2rem 0;
+//		height: fit-content;
+//
+//		&-right {
+//		}
+//
+//		&-left {
+//			width: 44%;
+//			display: flex;
+//			justify-content: center;
+//			align-items: center;
+//			position: relative;
+//			padding-bottom: 120%;
+//			//position: relative;
+//
+//			img {
+//				display: block;
+//				//max-width: 99%;
+//				//position: absolute;
+//				//object-fit: cover;
+//				//top: 0;
+//				//bottom: 0;
+//				//left: 0;
+//				//right: 0;
+//				width: 100%;
+//				height: 100%;
+//			}
+//
+//			//img {
+//			//	display: block;
+//			//	max-width: 100%;
+//			//	position: absolute;
+//			//	//object-fit: cover;
+//			//	top: 0;
+//			//	bottom: 0;
+//			//	left: 0;
+//			//	right: 0;
+//			//	width: 100%;
+//			//	//height: 100%;
+//			//}
+//		}
+//
+//		&__name {
+//			color: rgba(255, 221, 186, 1);
+//		}
+//
+//		h2,
+//		h1 {
+//			padding-bottom: 18px;
+//		}
+//	}
+//}
+//.mobile-title {
+//	display: none;
+//}
+//.about-us-bottom__body-right__title-mobile {
+//	display: none;
+//}
+//
+//@media screen and(max-width: 1024px) {
+//	.big-top-three {
+//		width: 54%;
+//	}
+//	.about-us {
+//		//width: 95%;
+//		margin: 0 25px;
+//		display: flex;
+//		flex-direction: column;
+//		&-top {
+//			&__body {
+//				&-left {
+//					width: 55%;
+//					padding-right: 15px;
+//				}
+//				&-title {
+//					padding-bottom: 20px;
+//					font-size: 24px;
+//					font-weight: 700;
+//					line-height: 30px;
+//					letter-spacing: 0em;
+//					text-align: left;
+//				}
+//			}
+//		}
+//		&-bottom {
+//			&__body {
+//				margin: 50px 0;
+//				&-right {
+//					width: 60%;
+//					padding: 0 0 0 25px;
+//
+//					&__title {
+//						font-size: 24px;
+//						font-weight: 700;
+//						line-height: 30px;
+//						letter-spacing: 0;
+//						text-align: left;
+//					}
+//				}
+//			}
+//		}
+//	}
+//}
+//
+//@media screen and(max-width: 600px) {
+//	.mobile-title {
+//		display: flex !important;
+//		font-style: normal;
+//		font-weight: 600;
+//		font-size: 16px;
+//		line-height: 20px;
+//
+//		color: #ffffff;
+//	}
+//	.about-us {
+//		display: flex;
+//		flex-direction: column;
+//		align-items: center;
+//
+//		.big-top-three {
+//			display: none;
+//		}
+//
+//		&-top__body {
+//			flex-direction: column;
+//			align-items: center;
+//
+//			&-title {
+//				padding-bottom: 24px;
+//			}
+//
+//			&-left {
+//				width: 100%;
+//				font-size: 14px;
+//				padding-right: 0;
+//			}
+//		}
+//		&-bottom {
+//			&__body {
+//				display: flex;
+//				flex-direction: column;
+//				align-items: center;
+//				margin: 20px 0;
+//				&__name {
+//					padding-top: 20px;
+//					font-style: normal;
+//					font-weight: 600;
+//					font-size: 16px;
+//					line-height: 20px;
+//					color: #ffddba;
+//				}
+//				&-left {
+//					width: 100%;
+//				}
+//				&-right {
+//					width: 100%;
+//					padding: 0;
+//					&__title {
+//						display: none;
+//					}
+//				}
+//			}
+//		}
+//	}
+//}
+//@media screen and(max-width: 1920px) {
+//	.about-us-top__body-left {
+//		width: 48%;
+//	}
+//	.about-us-bottom__body-right {
+//		//margin-left: 80px;
+//		padding-left: 50px;
+//	}
+//	.about-us-bottom__body-left {
+//		//margin-right: 70px;
+//		width: 50%;
+//		padding-bottom: 0%;
+//	}
+//}
 .about-us {
-	//width: 84%;
-
-	p {
-		padding-bottom: 17px;
-	}
-
-	&-top__body {
+	&__company {
 		display: flex;
-		justify-content: space-between;
-
-		&-left {
+		padding-bottom: 70px;
+		&__info {
+			width: 30%;
+			margin: 0 20px 0 5px;
+			&__name {
+				padding-bottom: 35px;
+			}
+		}
+		&__example {
 			width: 70%;
-			padding-right: 40px;
-		}
-
-		&-title {
-			font-size: 16px;
-			padding-bottom: 40px;
+			padding: 0 27px 0 20px;
 		}
 	}
-
-	&-bottom__body {
+	&__person {
 		display: flex;
-		margin: 71px 0;
-		//padding: 5rem 0 2rem 0;
-		height: fit-content;
-
-		&-right {
-		}
-
-		&-left {
-			width: 44%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			position: relative;
-			padding-bottom: 120%;
-			//position: relative;
+		&__photo {
+			width: 30%;
+			margin: 0 20px 0 5px;
 
 			img {
-				display: block;
-				max-width: 99%;
-				position: absolute;
-				object-fit: cover;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
 				width: 100%;
-				height: 100%;
 			}
-
-			//img {
-			//	display: block;
-			//	max-width: 100%;
-			//	position: absolute;
-			//	//object-fit: cover;
-			//	top: 0;
-			//	bottom: 0;
-			//	left: 0;
-			//	right: 0;
-			//	width: 100%;
-			//	//height: 100%;
-			//}
+		}
+		&__post {
+			padding-bottom: 17px;
+		}
+		&__bio {
+			width: 70%;
+			padding: 0 27px 0 20px;
 		}
 
 		&__name {
-			color: rgba(255, 221, 186, 1);
-		}
-
-		h2,
-		h1 {
-			padding-bottom: 18px;
+			color: $gold-color;
+			padding-bottom: 34px;
+			font-size: 30px;
+			font-weight: 700;
+			line-height: 38px;
+			text-align: left;
 		}
 	}
 }
-.mobile-title {
-	display: none;
-}
-.about-us-bottom__body-right__title-mobile {
+.about-us__person__post-mobile {
 	display: none;
 }
 
+@media screen and(max-width: 1440px) {
+	.about-us {
+		&__company {
+			&__info {
+				width: 42%;
+			}
+			&__example {
+				width: 56%;
+				padding: 0 27px 0 20px;
+			}
+		}
+		&__person {
+			&__photo {
+				width: 36%;
+			}
+			&__bio {
+				padding: 0 27px 0 55px;
+			}
+		}
+	}
+}
 @media screen and(max-width: 1024px) {
-	.big-top-three {
-		width: 54%;
+	p {
+		font-size: 14px !important;
 	}
 	.about-us {
-		//width: 95%;
-		margin: 0 25px;
-		display: flex;
-		flex-direction: column;
-		&-top {
-			&__body {
-				&-left {
-					width: 55%;
-					padding-right: 15px;
-				}
-				&-title {
-					padding-bottom: 20px;
-					font-size: 24px;
-					font-weight: 700;
-					line-height: 30px;
-					letter-spacing: 0em;
-					text-align: left;
-				}
+		&__company {
+			margin-top: 60px;
+			&__info {
+				width: 44%;
+
+				margin: 0 0 0 20px;
+			}
+			&__example {
+				width: 53%;
+				padding: 0 24px 0 15px;
 			}
 		}
-		&-bottom {
-			&__body {
-				margin: 50px 0;
-				&-right {
-					width: 60%;
-					padding: 0 0 0 25px;
-
-					&__title {
-						font-size: 24px;
-						font-weight: 700;
-						line-height: 30px;
-						letter-spacing: 0;
-						text-align: left;
-					}
-				}
+		&__person {
+			&__name {
+				padding-bottom: 15px;
+			}
+			&__photo {
+				width: 58%;
+				margin: 0 25px;
+			}
+			&__bio {
+				padding: 0 25px 0 0;
 			}
 		}
 	}
 }
-
 @media screen and(max-width: 600px) {
-	.mobile-title {
-		display: flex !important;
-		font-style: normal;
-		font-weight: 600;
-		font-size: 16px;
-		line-height: 20px;
-
-		color: #ffffff;
-	}
 	.about-us {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		.big-top-three {
-			display: none;
-		}
-
-		&-top__body {
+		&__company {
+			margin-top: 30px;
+			display: flex;
 			flex-direction: column;
-			align-items: center;
-
-			&-title {
-				padding-bottom: 24px;
-			}
-
-			&-left {
+			padding-bottom: 0px;
+			&__info {
 				width: 100%;
-				font-size: 14px;
-				padding-right: 0;
-			}
-		}
-		&-bottom {
-			&__body {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				margin: 20px 0;
+				margin: 0;
+				padding-left: 20px;
+				padding-right: 20px;
 				&__name {
-					padding-top: 20px;
-					font-style: normal;
-					font-weight: 600;
-					font-size: 16px;
-					line-height: 20px;
-					color: #ffddba;
-				}
-				&-left {
-					width: 100%;
-				}
-				&-right {
-					width: 100%;
-					padding: 0;
-					&__title {
-						display: none;
-					}
+					padding-bottom: 10px;
 				}
 			}
+			&__example {
+				display: none;
+			}
 		}
+		&__person {
+			flex-direction: column;
+			&__name {
+				padding-top: 20px;
+				font-size: 16px;
+				font-weight: 600;
+				line-height: 20px;
+				text-align: left;
+			}
+			&__photo {
+				width: 100%;
+				margin: 0;
+				padding: 0 20px;
+			}
+			&__post {
+				display: none;
+			}
+			&__bio {
+				width: 100%;
+				padding: 0 20px;
+			}
+		}
+	}
+	.about-us__person__post-mobile {
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 20px;
+		text-align: left;
+
+		display: block;
+		padding: 0 20px;
 	}
 }

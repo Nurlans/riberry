@@ -27,9 +27,9 @@ const AboutUs = () => {
 			) : (
 				!burgerMenu && (
 					<div className='about-us'>
-						<div className='about-us-top__body'>
-							<div className='about-us-top__body-left'>
-								<h2 className='about-us-top__body-title'>
+						<div className='about-us__company'>
+							<div className='about-us__company__info'>
+								<h2 className='about-us__company__info__name'>
 									{t('Studio “Riberry”')}
 								</h2>
 								<p>
@@ -103,13 +103,15 @@ const AboutUs = () => {
 									</>
 								)}
 							</div>
-							<BigMiddleThree images={info.attributes.images} />
+							<div className='about-us__company__example'>
+								<BigMiddleThree images={info.attributes.images} />
+							</div>
 						</div>
-						<div className='about-us-bottom__body'>
-							<h2 className='about-us-bottom__body-right__title mobile-title'>
-								{t('Director and creative director of the studio "Riberry"')}
-							</h2>
-							<div className='about-us-bottom__body-left'>
+						<h2 className='about-us__person__post-mobile'>
+							{t('Director and creative director of the studio "Riberry"')}
+						</h2>
+						<div className='about-us__person'>
+							<div className='about-us__person__photo'>
 								<img
 									src={
 										baseUrl + info.attributes.personPhoto.data[0].attributes.url
@@ -117,11 +119,11 @@ const AboutUs = () => {
 									alt=''
 								/>
 							</div>
-							<div className='about-us-bottom__body-right'>
-								<h2 className='about-us-bottom__body-right__title'>
+							<div className='about-us__person__bio'>
+								<h2 className='about-us__person__post'>
 									{t('Director and creative director of the studio "Riberry"')}
 								</h2>
-								<h1 className='about-us-bottom__body__name'>
+								<h1 className='about-us__person__name'>
 									{t('Alina Kozlova.')}
 								</h1>
 								<p>{t('She was born in Novosibirsk, Russia.')}</p>
