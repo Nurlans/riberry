@@ -56,7 +56,11 @@
 		white-space: nowrap;
 	}
 }
-
+@media screen and(max-width: 1024px) {
+	.price-info-main {
+		width: 49% !important;
+	}
+}
 @media screen and(max-width: 600px) {
 	.price-info-main {
 		width: 100% !important;

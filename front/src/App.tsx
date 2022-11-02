@@ -11,12 +11,12 @@ import MoreInfo from './pages/moreInfo'
 import './i18n'
 import Contacts from './pages/contacts'
 import Blog from './pages/blog'
-
+import './App.scss'
 function App() {
 	return (
 		<>
 			<Header />
-			<div style={{ display: 'flex', justifyContent: 'center' }}>
+			<div className='main-wrapper'>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/public' element={<Home />} />

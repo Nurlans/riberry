@@ -11,9 +11,10 @@ const arrowLeft = require('../../assets/arrow-left.svg').default
 const closeBtn = require('../../assets/closeBtn.svg').default
 
 const MoreInfo = () => {
-	const { t } = useTranslation()
+	const { t, i18n } = useTranslation()
 	const dispatch = useAppDispatch()
 	const [readMore, setReadMore] = useState(false)
+	const { lang } = useAppSelector(state => state.settingsReducer)
 	const { photosById, error, isLoading } = useAppSelector(
 		state => state.photoByIdReducer
 	)
@@ -25,10 +26,15 @@ const MoreInfo = () => {
 			thumbnail: 'http://localhost:1337' + photo.attributes.url
 		}))
 	]
+
+	// const lang = i18n.language || window.localStorage.i18nextLng
+	console.log(lang, 'getLanguage')
 	useEffect(() => {
 		dispatch(fetchPhotoById(params.id))
 	}, [])
-	return (
+	return isLoading ? (
+		<> Loading..</>
+	) : (
 		<div className='about-repair__wrapper'>
 			<div className='about-repair__mobile'>
 				<div className='about-repair__mobile-top'>
@@ -41,9 +47,9 @@ const MoreInfo = () => {
 					</div>
 				</div>
 				<div className='about-repair__mobile-top__desc'>
-					{photosById.attributes.description?.length > 100 && readMore
-						? photosById.attributes.description
-						: photosById.attributes.description?.slice(0, 100)}
+					{photosById.attributes.desc[lang]?.length > 100 && readMore
+						? photosById.attributes.desc[lang]
+						: photosById.attributes.desc[lang]?.slice(0, 100)}
 					{!readMore && photosById.attributes.description && (
 						<span
 							onClick={() => setReadMore(true)}

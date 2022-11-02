@@ -1,22 +1,21 @@
 .price-info-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 98%;
-
-  //justify-content: space-evenly;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 98%;
+	margin: 10px auto 0 auto;
 }
 @media screen and(min-width: 1920px) {
-  .price-info-wrapper{
-    width: 99%;
-  }
+	.price-info-wrapper {
+		//width: 99%;
+	}
 }
 @media screen and(max-width: 600px) {
-  .price-info-wrapper {
-    width: 95%;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin: 0 auto;
-  }
+	.price-info-wrapper {
+		width: 95%;
+		flex-wrap: wrap;
+		flex-direction: column;
+		margin: 0 auto;
+	}
 }

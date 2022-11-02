@@ -1,29 +1,30 @@
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
 
 .slick-slide {
-  height: 150px;
+	height: 150px;
 }
 
 .slick-slide img {
-  height: 170px;
+	height: 170px;
 }
 
 .slick-slider {
-  width: 90%;
-  //margin: 0 auto;
+	width: 100%;
+	//margin: 0 auto;
 }
 
 .slick-prev {
-  z-index: 10;
-  left: 0;
+	z-index: 10;
+	left: 0;
 }
 .slick-next {
-  z-index: 10;
-  right: 25px;
+	z-index: 10;
+	right: 25px;
 }
 
-.slick-prev:before, .slick-next:before {
-  font-size: 45px;
-  opacity: 1;
+.slick-prev:before,
+.slick-next:before {
+	font-size: 45px;
+	opacity: 1;
 }

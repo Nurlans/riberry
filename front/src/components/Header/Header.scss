@@ -21,7 +21,7 @@
 
 .navigation-menu {
 	margin-left: auto;
-	width: 50%;
+	width: 59%;
 
 	.selected {
 		border-bottom: 1px solid white;
@@ -50,17 +50,23 @@
 .select-language {
 	outline: none;
 	border: none;
-	//margin: 0 70px 0 0;
 	color: #ffddba;
 	font-size: 16px;
-	//padding: 0 40px 0 auto;
 }
 
 .mobile-filter-btn {
 	display: none;
 }
-
+.tablet-sel {
+	display: none;
+}
 @media screen and(max-width: 1024px) {
+	.tablet-sel {
+		display: block;
+		position: absolute;
+		left: 85%;
+		top: 26px;
+	}
 	.navigation-menu {
 		display: none;
 	}
@@ -86,15 +92,15 @@
 	.icon-three {
 		position: absolute;
 		bottom: 16px;
-		left: 90%;
-		width: 40px;
+		left: 96%;
+		width: 20px;
 		height: 50px;
 		cursor: pointer;
 	}
 	.mobile-filter-btn {
 		display: block;
 		position: absolute;
-		left: 80%;
+		left: 77%;
 		cursor: pointer;
 		width: 40px;
 	}
@@ -126,16 +132,16 @@
 		box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 	}
 	.select-language {
-		margin: 0 70px 0 0;
+		margin: 0 8% 0 0;
 	}
 	.header__slider {
 		display: block;
+		padding: 5px 0;
 	}
 }
 
 .header__slider * {
-	height: 55px;
-
+	height: 65px;
 	.slick-slide,
 	.slick-active,
 	.slick-current {
@@ -154,6 +160,14 @@
 }
 
 .only-lang {
-	width: 98%;
+	//width: 98%;
 	justify-content: space-between;
+}
+@media screen and(max-width: 600px) {
+	.icon-three {
+		left: 92%;
+	}
+	.tablet-sel {
+		display: none;
+	}
 }

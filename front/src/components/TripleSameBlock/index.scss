@@ -1,0 +1,23 @@
+.triple-same {
+	&__row-1 {
+		display: flex;
+		&-item {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			padding-bottom: 67%;
+		}
+	}
+	&__row-2 {
+		&-item {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			padding-bottom: 75%;
+		}
+	}
+}

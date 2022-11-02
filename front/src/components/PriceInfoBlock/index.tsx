@@ -22,8 +22,6 @@ const PriceInfoBlock = ({
 	from200,
 	id
 }: PriceInfoBlockProps) => {
-	const screenWidth = window.screen.width
-
 	return (
 		<div
 			className='price-info-main'
@@ -32,7 +30,7 @@ const PriceInfoBlock = ({
 			<div className='price-info'>
 				<div className='price-info__title'>{title}</div>
 				<div className='price-info__num'>
-					{price === 0 ? (
+					{!price ? (
 						<div style={{ padding: '10px' }} />
 					) : (
 						<>
@@ -44,7 +42,7 @@ const PriceInfoBlock = ({
 			{moreInfo && (
 				<div className='more-info'>
 					<div className='more-info-item'>
-						<div className='more-info__square'>До 100 м²</div>
+						<div className='more-info__square'></div>
 						{to100 && (
 							<div className='price-info__num'>
 								{to100} <span> &#8380; </span>

@@ -1,52 +1,52 @@
 .contacts {
-  //min-width: 1000px;
-  margin: 0 auto;
-  flex: auto;
-  max-width: 84%;
+	//min-width: 1000px;
+	margin: 0 auto;
+	flex: auto;
+	max-width: 84%;
 
-  &__title {
-    color: #FFDDBA;
-    padding-bottom: 15px;
-  }
+	&__title {
+		color: #ffddba;
+		padding-bottom: 15px;
+	}
 
-  &__list {
-    //padding: 15px ;
-    padding-bottom: 40px;
+	&__list {
+		//padding: 15px ;
+		padding-bottom: 40px;
 
-    li {
-      padding: 10px 0;
-      font-size: 14px;
-      font-weight: bold;
-      list-style-type: none;
+		li {
+			padding: 10px 0;
+			font-size: 14px;
+			font-weight: bold;
+			list-style-type: none;
 
-      //&:before {
-      //  content: '•';
-      //  font-size: 30px;
-      //  line-height: 24px;
-      //  vertical-align: middle;
-      //  padding-right: 9px;
-      //}
+			//&:before {
+			//  content: '•';
+			//  font-size: 30px;
+			//  line-height: 24px;
+			//  vertical-align: middle;
+			//  padding-right: 9px;
+			//}
 
-      a {
-        text-decoration: none;
-        font-weight: 500;
+			a {
+				text-decoration: none;
+				font-weight: 500;
+			}
+		}
+	}
 
-      }
-    }
-
-  }
-
-  &-our-projects {
-    padding: 50px 0 20px 0;
-    color: #FFDDBA;
-
-  }
+	&-our-projects {
+		padding: 50px 0 20px 0;
+		color: #ffddba;
+	}
 }
 
-.slider__wrapper  {
-  //max-width: 90vw;
+.slick-list {
+	height: 180px;
+}
+.slider__wrapper {
+	width: 98%;
 }
 
 .maps {
-  max-width: 100%;
+	max-width: 100%;
 }

@@ -20,21 +20,24 @@ const Blogs = () => {
 	return (
 		<>
 			<Navigation />
-			{isLoading && 'Loading...'}
-			{!burgerMenu && (
-				<div className='blogs'>
-					{blogs.map(blog => (
-						<NavLink to={`${blog.id}`} className='blog' key={blog.id}>
-							<img
-								className='blog-image'
-								src={baseUrl + blog.attributes.blog_Img.data.attributes.url}
-								alt=''
-							/>
-							<p className='blog-date'>{blog.attributes.blog_date} </p>
-							<p className='blog-title'>{blog.attributes.blog_title} </p>
-						</NavLink>
-					))}
-				</div>
+			{isLoading ? (
+				<>Loading...</>
+			) : (
+				!burgerMenu && (
+					<div className='blogs'>
+						{blogs.map(blog => (
+							<NavLink to={`${blog.id}`} className='blog' key={blog.id}>
+								<img
+									className='blog-image'
+									src={baseUrl + blog.attributes.blog_Img.data.attributes.url}
+									alt=''
+								/>
+								<p className='blog-date'>{blog.attributes.blog_date} </p>
+								<p className='blog-title'>{blog.attributes.blog_title} </p>
+							</NavLink>
+						))}
+					</div>
+				)
 			)}
 		</>
 	)

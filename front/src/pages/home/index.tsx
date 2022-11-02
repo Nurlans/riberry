@@ -18,14 +18,20 @@ import './index.scss'
 import { NavLink } from 'react-router-dom'
 import Navigation from '../../components/Navigation/Navigation'
 import FilterSlider from '../../components/FilterSlider'
+import { useTranslation } from 'react-i18next'
+import TripleBigBottom from '../../components/BlockForm/TripleBigBottom'
+import TripleBigTop from '../../components/BlockForm/TripleBigTop'
+import DoubleBlock from '../../components/BlockForm/DoubleBlock'
+import { CONFIG } from '../../config'
+import OneImgBlock from '../../components/BlockForm/OneImgBlock'
+import TripleSameBlock from '../../components/TripleSameBlock'
 
 const arrowBack = require('../../assets/arrow-left.svg').default
 const close_btn = require('../../assets/close_btn.svg').default
 
-const baseUrl = 'http://localhost:1337'
-
 const Home = () => {
 	const dispatch = useAppDispatch()
+	const { t } = useTranslation()
 	const [showAllTypeFilters, setShowAllTypeFilters] = useState(false)
 	const [showAllStyleFilters, setShowAllStyleFilters] = useState(false)
 	const { photos, rightPhotos, error, pageCount, isLoading, selectedNavPage } =
@@ -37,7 +43,6 @@ const Home = () => {
 		state => state.filterReducer
 	)
 	const [page, setPage] = useState(1)
-	const [fetching, setFetching] = useState(false)
 	const lastElement: any = useRef()
 	const observer: any = useRef()
 	// useEffect(() => {
@@ -49,10 +54,12 @@ const Home = () => {
 			target: { value }
 		} = event
 		if (type === 'selectedType') {
+			debugger
 			if (selectedType.find((item: string) => item === value)) {
 				dispatch(deleteTypeAction(value))
 				// setSelectedType(selectedType.filter((item: string) => item !== value))
 			} else {
+				debugger
 				dispatch(addTypeAction(value))
 				// setSelectedType([...selectedType, value])
 			}
@@ -74,7 +81,6 @@ const Home = () => {
 		if (page === 1 && photos.length > 1) {
 			dispatch(clearPhotoState())
 		}
-
 		dispatch(
 			photosByPagination(selectedType, selectedStyle, selectedNavPage, page)
 		)
@@ -141,9 +147,11 @@ const Home = () => {
 											className='selected-filter__nav__back'
 										>
 											<img src={arrowBack} alt='Back' />
-											<div>Фильтр</div>
+											<button className='selected-filter__nav__back__text'>
+												Фильтр
+											</button>
 										</div>
-										<div
+										<button
 											className='selected-filter__nav__clear'
 											onClick={() => {
 												dispatch(clearAllStylesAction())
@@ -153,44 +161,49 @@ const Home = () => {
 											}}
 										>
 											Очистить
-										</div>
+										</button>
 									</div>
-									<FilterSlider
-										selectedType={selectedType}
-										selectedStyle={selectedStyle}
-										handleChange={handleChange}
-									/>
-									{/*{selectedType.map(item => (*/}
-									{/*	<div*/}
-									{/*		style={{ margin: '5px' }}*/}
-									{/*		onClick={() => {*/}
-									{/*			handleChange(*/}
-									{/*				{ target: { value: item } },*/}
-									{/*				'selectedType'*/}
-									{/*			)*/}
-									{/*			console.log(selectedStyle, selectedType, 'sssss')*/}
-									{/*		}}*/}
-									{/*		className='mobile-filter-selected'*/}
-									{/*	>*/}
-									{/*		{item}*/}
-									{/*		<img src={close_btn} alt='Close' />*/}
-									{/*	</div>*/}
-									{/*))}*/}
-									{/*{selectedStyle.map(item => (*/}
-									{/*	<div*/}
-									{/*		style={{ margin: '5px' }}*/}
-									{/*		onClick={() => {*/}
-									{/*			handleChange(*/}
-									{/*				{ target: { value: item } },*/}
-									{/*				'selectedStyle'*/}
-									{/*			)*/}
-									{/*		}}*/}
-									{/*		className='mobile-filter-selected'*/}
-									{/*	>*/}
-									{/*		{item}*/}
-									{/*		<img src={close_btn} alt='Close' />*/}
-									{/*	</div>*/}
-									{/*))}*/}
+									{[...selectedType, ...selectedStyle].length < 4 ? (
+										<>
+											{selectedType.map(item => (
+												<div
+													style={{ margin: '5px' }}
+													onClick={() => {
+														handleChange(
+															{ target: { value: item } },
+															'selectedType'
+														)
+														console.log(selectedStyle, selectedType, 'sssss')
+													}}
+													className='mobile-filter-selected'
+												>
+													{item}
+													<img src={close_btn} alt='Close' />
+												</div>
+											))}
+											{selectedStyle.map(item => (
+												<div
+													style={{ margin: '5px' }}
+													onClick={() => {
+														handleChange(
+															{ target: { value: item } },
+															'selectedStyle'
+														)
+													}}
+													className='mobile-filter-selected'
+												>
+													{item}
+													<img src={close_btn} alt='Close' />
+												</div>
+											))}
+										</>
+									) : (
+										<FilterSlider
+											selectedType={selectedType}
+											selectedStyle={selectedStyle}
+											handleChange={handleChange}
+										/>
+									)}
 								</>
 							) : null}
 						</div>
@@ -199,272 +212,74 @@ const Home = () => {
 								<>
 									<div className='left-column'>
 										{photos?.map((item: IPhoto, i: number) => {
-											if (i % 8 === 0) {
+											if (i % 4 === 0) {
 												return (
 													<div key={item?.id} className='left-block'>
 														<NavLink
 															className='img-wrapper'
 															to={`/moreInfo/${item?.id}`}
 														>
-															<div className='top'>
-																<div className='adaptive'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[0].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div>
-																	<div className='adaptive'>
-																		<img
-																			src={
-																				baseUrl +
-																				item?.attributes.images.data[1]
-																					.attributes.url
-																			}
-																			alt=''
-																		/>
-																	</div>
-																	<div className='adaptive'>
-																		<img
-																			src={
-																				baseUrl +
-																				item?.attributes.images.data[2]
-																					.attributes.url
-																			}
-																			alt=''
-																		/>
-																	</div>
-																</div>
-															</div>
+															<TripleBigBottom
+																item={item}
+																baseUrl={CONFIG.baseUrl}
+															/>
 
-															<div className='bottom'>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[3].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[4].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
-															{!(burgerMenu || showFilter) && (
+															{!burgerMenu && !showFilter && (
 																<InfoBlock item={item} />
 															)}
 														</NavLink>
 													</div>
 												)
-											} else if (i % 8 === 1) {
+											} else if (i % 4 === 1) {
+												return (
+													<>
+														<div key={item?.id} className='left-block'>
+															<NavLink
+																className='img-wrapper'
+																to={`/moreInfo/${item?.id}`}
+															>
+																<DoubleBlock
+																	item={item}
+																	baseUrl={CONFIG.baseUrl}
+																/>
+																{!burgerMenu && !showFilter && (
+																	<InfoBlock item={item} />
+																)}
+															</NavLink>
+														</div>
+													</>
+												)
+											} else if (i % 4 === 2) {
 												return (
 													<div key={item?.id} className='left-block'>
 														<NavLink
 															className='img-wrapper'
 															to={`/moreInfo/${item?.id}`}
 														>
-															<div className='top'>
-																<div className='adaptive small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[0].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[1].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
-															<div className='bottom'>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[2].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[3].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[4].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
-															{!(burgerMenu || showFilter) && (
+															<TripleSameBlock
+																item={item}
+																baseUrl={CONFIG.baseUrl}
+															/>
+															{!burgerMenu && !showFilter && (
 																<InfoBlock item={item} />
 															)}
 														</NavLink>
 													</div>
 												)
-											} else if (i % 8 === 2) {
-												return (
-													<div key={item?.id} className='left-block'>
-														<NavLink
-															className='img-wrapper'
-															to={`/moreInfo/${item?.id}`}
-														>
-															<div className='top'>
-																<div className='adaptive'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[0].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[1].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
-															<div className='bottom'>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[2].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[3].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[4].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
-															{!(burgerMenu || showFilter) && (
-																<InfoBlock item={item} />
-															)}
-														</NavLink>
-													</div>
-												)
-											} else if (i % 8 === 3) {
+											} else if (i % 4 === 3) {
 												return (
 													<div key={item?.id} className='left-block '>
 														<NavLink
 															className='img-wrapper'
 															to={`/moreInfo/${item?.id}`}
 														>
-															<div className='top'>
-																<div className='adaptive small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[0].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[1].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
-															<div className='bottom'>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[2].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[3].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[4].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
-															{!(burgerMenu || showFilter) && (
+															<TripleBigTop
+																item={item}
+																baseUrl={CONFIG.baseUrl}
+																columnReverse
+																reverse
+															/>
+															{!burgerMenu && !showFilter && (
 																<InfoBlock item={item} />
 															)}
 														</NavLink>
@@ -475,118 +290,91 @@ const Home = () => {
 									</div>
 									<div className='right-column'>
 										{rightPhotos?.map((item: IPhoto, i: number) => {
-											if (i % 2 === 0) {
+											if (i % 5 === 0) {
 												return (
 													<div key={item?.id} className='right-block '>
 														<NavLink
 															className='img-wrapper'
 															to={`/moreInfo/${item?.id}`}
 														>
-															<div className='top'>
-																<div className='adaptive'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[0].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
-															<div className='bottom'>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[1].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[2].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
-															{!(burgerMenu || showFilter) && (
+															<TripleBigTop
+																item={item}
+																baseUrl={CONFIG.baseUrl}
+															/>
+															{!burgerMenu && !showFilter && (
 																<InfoBlock item={item} />
 															)}
 														</NavLink>
 													</div>
 												)
-											} else if (i % 2 === 1) {
+											} else if (i % 5 === 1) {
 												return (
 													<div key={item?.id} className='right-block '>
 														<NavLink
 															className='img-wrapper'
 															to={`/moreInfo/${item?.id}`}
 														>
-															<div className='top'>
-																<div>
-																	<div className='adaptive'>
-																		<img
-																			src={
-																				baseUrl +
-																				item?.attributes.images.data[1]
-																					.attributes.url
-																			}
-																			alt=''
-																		/>
-																	</div>
-																	<div className='adaptive'>
-																		<img
-																			src={
-																				baseUrl +
-																				item?.attributes.images.data[2]
-																					.attributes.url
-																			}
-																			alt=''
-																		/>
-																	</div>
-																</div>
-																<div className='adaptive'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[0].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
-															<div className='bottom'>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[3].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-																<div className='adaptive-small'>
-																	<img
-																		src={
-																			baseUrl +
-																			item?.attributes.images.data[4].attributes
-																				.url
-																		}
-																		alt=''
-																	/>
-																</div>
-															</div>
+															<TripleBigTop
+																item={item}
+																baseUrl={CONFIG.baseUrl}
+																reverse
+															/>
 
-															{!(burgerMenu || showFilter) && (
+															{!burgerMenu && !showFilter && (
+																<InfoBlock item={item} />
+															)}
+														</NavLink>
+													</div>
+												)
+											} else if (i % 5 === 2) {
+												return (
+													<div key={item?.id} className='right-block '>
+														<NavLink
+															className='img-wrapper'
+															to={`/moreInfo/${item?.id}`}
+														>
+															<OneImgBlock
+																item={item}
+																baseUrl={CONFIG.baseUrl}
+															/>
+															{!burgerMenu && !showFilter && (
+																<InfoBlock item={item} />
+															)}
+														</NavLink>
+													</div>
+												)
+											} else if (i % 5 === 3) {
+												return (
+													<div key={item?.id} className='right-block '>
+														<NavLink
+															className='img-wrapper'
+															to={`/moreInfo/${item?.id}`}
+														>
+															<TripleBigTop
+																item={item}
+																baseUrl={CONFIG.baseUrl}
+																columnReverse
+															/>
+															{!burgerMenu && !showFilter && (
+																<InfoBlock item={item} />
+															)}
+														</NavLink>
+													</div>
+												)
+											} else if (i % 5 === 4) {
+												return (
+													<div key={item?.id} className='right-block '>
+														<NavLink
+															className='img-wrapper'
+															to={`/moreInfo/${item?.id}`}
+														>
+															<TripleBigTop
+																item={item}
+																baseUrl={CONFIG.baseUrl}
+																columnReverse
+																reverse
+															/>
+															{!burgerMenu && !showFilter && (
 																<InfoBlock item={item} />
 															)}
 														</NavLink>
@@ -597,7 +385,7 @@ const Home = () => {
 									</div>
 								</>
 							)) ||
-								'Фото отсутвсвует'}
+								t('Фото отсутствует')}
 						</div>
 
 						{/*<div className='selected-filter'></div>*/}

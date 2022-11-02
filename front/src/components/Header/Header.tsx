@@ -4,12 +4,14 @@ import { NavLink, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import {
+	changeLangAction,
 	openBurgerMenu,
 	openFilterMenu,
 	openSelectedFilter,
 	selectNavPage
 } from '../../store/reducers/ActionCreators'
 import SwipeToSlide from '../../utils/swipeSlider'
+import { Language } from '../../utils/enum'
 
 const logo = require('../../assets/logo.svg').default
 const filter = require('../../assets/filter.svg').default
@@ -30,16 +32,16 @@ const Header = () => {
 	const { selectedStyle, selectedType } = useAppSelector(
 		state => state.filterReducer
 	)
-	const screenWidth = window.screen.width
-	const params = useParams()
 	const headerLinks = [
 		{ id: 1, title: t('Interiors'), path: '/' },
-		{ id: 2, title: t('Общественные места'), path: '/public' },
-		{ id: 3, title: t('Экстерьный, ланшафтный дизайн'), path: '/landscape' },
-		{ id: 4, title: t('Реализация'), path: '/realization' }
+		{ id: 2, title: t('Public places'), path: '/public' },
+		{ id: 3, title: t('Exterior, landscape design'), path: '/landscape' },
+		{ id: 4, title: t('Realization'), path: '/realization' }
 	]
 
-	const setLanguage = (lang: string) => {
+	const setLanguage = (lang: any) => {
+		dispatch(changeLangAction(lang))
+		debugger
 		i18n.changeLanguage(lang, (err, t) => {
 			if (err) return console.log('something went wrong loading', err)
 			t('key') // -> same as i18next.t
@@ -66,7 +68,16 @@ const Header = () => {
 							<NavLink to='/' className='brand-name'>
 								<img src={logo} alt='' />
 							</NavLink>
-
+							<select
+								className='select-language tablet-sel'
+								style={{}}
+								value={selectedLanguage}
+								onChange={handleSelectChange}
+							>
+								<option value='ru'>Ru</option>
+								<option value='az'>Az</option>
+								<option value='en'>En</option>
+							</select>
 							<div onClick={handleFilterMenu} className='mobile-filter-btn'>
 								<img src={filter} alt='' />
 							</div>

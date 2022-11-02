@@ -1,53 +1,55 @@
-
 .big-top-three {
-  //margin: 0 40px;
-  width: 90%;
+	margin: 0 20px;
+	width: 100%;
 }
 
 .bottom-block {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 4px;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 4px;
 
-  img {
-    width: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-  }
+	img {
+		width: 100%;
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 100%;
+	}
 
-  &__top {
-    width: 100%;
+	&__top {
+		width: 100%;
 
-    position: relative;
-    padding-bottom: 67%;
-    margin-bottom: 2px;
+		position: relative;
+		padding-bottom: 75%;
+		margin-bottom: 2px;
 
-    img {
-      width: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 100%;
-    }
-  }
+		img {
+			width: 100%;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 100%;
+		}
+	}
 
-  &__item {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding-bottom: 25%;
-    margin-bottom: 10px;
-
-  }
-
+	&__item {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		padding-bottom: 25%;
+		margin-bottom: 10px;
+	}
+}
+@media screen and(max-width: 1024px) {
+	.big-top-three {
+		margin: 0;
+	}
 }

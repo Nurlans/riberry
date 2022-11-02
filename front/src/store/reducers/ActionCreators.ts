@@ -4,6 +4,7 @@ import { IImages } from '../../models/IImage'
 import { IAboutUsResponse } from '../../models/IAboutUs'
 import { AppDispatch } from '../store'
 import { photoSlice } from './photoSlice'
+import { Language } from '../../utils/enum'
 
 const baseUrl = 'http://localhost:1337/api/'
 
@@ -48,6 +49,14 @@ export const clearAllTypesAction = () => ({
 
 export const clearPhotoState = () => ({
 	type: 'photos/clearState'
+})
+export const changeLangAction = (lang: Language) => ({
+	type: 'settings/changeLang',
+	payload: lang
+})
+export const loadingStartAction = (lang: Language) => ({
+	type: 'settings/changeLang',
+	payload: lang
 })
 
 export const fetchPhotos = createAsyncThunk(

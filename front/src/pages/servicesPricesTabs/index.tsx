@@ -14,11 +14,10 @@ const ServicesPrices = () => {
 	const dispatch = useAppDispatch()
 	const [activeTab, setActiveTab] = useState('tab1')
 	const { burgerMenu } = useAppSelector(state => state.burgerMenuReducer)
-	useEffect(() => {}, [])
 	return (
 		<>
 			<Navigation />
-			{/*{isLoading && 'Loading...'}*/}
+
 			{!burgerMenu && (
 				<div className='Tabs'>
 					{/* Tab nav */}
@@ -42,7 +41,6 @@ const ServicesPrices = () => {
 							Ремонт
 						</li>
 					</ul>
-					<div></div>
 					<div className='outlet'>
 						{activeTab === 'tab1' ? (
 							<InteriorDesign />

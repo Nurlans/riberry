@@ -1,0 +1,32 @@
+.triple {
+	&-big {
+		&-top {
+			&__row-2 {
+				display: flex;
+				&__middle {
+					width: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					position: relative;
+					padding-bottom: 73%;
+				}
+			}
+			&__row-1 {
+				display: flex;
+				&__small {
+					width: 60% !important;
+				}
+				&__large,
+				&__small {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					position: relative;
+					padding-bottom: 47%;
+					margin: 1px;
+				}
+			}
+		}
+	}
+}

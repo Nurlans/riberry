@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import Slider from 'react-slick'
-
+import './index.scss'
 interface FilterSlider {
 	selectedType: string[]
 	selectedStyle: string[]
@@ -13,14 +13,14 @@ const FilterSlider: FC<FilterSlider> = ({
 	handleChange
 }) => {
 	const settings = {
-		className: 'center',
+		className: 'center selected-filter__slider',
 		infinite: true,
 		centerPadding: '10px',
 		slidesToShow: 3,
 		swipeToSlide: true,
 		arrows: false,
 		centerMode: true,
-		slidesToScroll: 4
+		slidesToScroll: 2
 		// adaptiveHeight: true
 	}
 	return (

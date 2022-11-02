@@ -22,135 +22,143 @@ const AboutUs = () => {
 	return (
 		<>
 			<Navigation />
-			{isLoading && 'Loading...'}
-			{!burgerMenu && (
-				<div className='about-us'>
-					<div className='about-us-top__body'>
-						<div className='about-us-top__body-left'>
-							<h2 className='about-us-top__body-title'>Студия “Riberry”</h2>
-							<p>
-								{' '}
-								"Riberry" - это уникальная студия по дизайну интерьеров и
-								проектированию, аналогов которой ещё не было на Бакинском рынке.
-							</p>
-							<p>
-								{' '}
-								Нашей отличительной чертой является ориентированность на высокие
-								мировые стандарты в сфере дизайна и архитектуры, что позволяет
-								облегчить процесс работы с клиентами, сделать его комфортным,
-								легким и быстрым, а также добиться наилучшего результата за
-								минимальный срок!
-								{!readMore && (
-									<span className='read-more' onClick={() => setReadMore(true)}>
-										{t(' read more')}
-									</span>
+			{isLoading ? (
+				<>Loading...</>
+			) : (
+				!burgerMenu && (
+					<div className='about-us'>
+						<div className='about-us-top__body'>
+							<div className='about-us-top__body-left'>
+								<h2 className='about-us-top__body-title'>
+									{t('Studio “Riberry”')}
+								</h2>
+								<p>
+									{t(
+										'"Riberry" is a unique interior design and engineering studio, which has no analogues in the Baku market.'
+									)}
+									{/*"Riberry" - это уникальная студия по дизайну интерьеров и*/}
+									{/*проектированию, аналогов которой ещё не было на Бакинском рынке.*/}
+								</p>
+								<p>
+									{t(
+										'Our distinguishing feature is our focus on high world standards in the field of design and architecture, which makes it easier to work with clients, make it comfortable, easy and fast, as well as achieve the best result in the shortest possible time!'
+									)}
+									{/*Нашей отличительной чертой является ориентированность на высокие*/}
+									{/*мировые стандарты в сфере дизайна и архитектуры, что позволяет*/}
+									{/*облегчить процесс работы с клиентами, сделать его комфортным,*/}
+									{/*легким и быстрым, а также добиться наилучшего результата за*/}
+									{/*минимальный срок!*/}
+									{!readMore && (
+										<span
+											className='read-more'
+											onClick={() => setReadMore(true)}
+										>
+											{t(' read more')}
+										</span>
+									)}
+								</p>
+
+								{readMore && (
+									<>
+										<p>
+											{t(
+												'The design studio "Riberry" was created in 2013 and during this time we have designed over 200 objects both in Azerbaijan and in Russia, and the feedback from grateful clients inspires us with confidence and give us the right to call ourselves professionals in the field of design and architecture!'
+											)}
+											{/*Студия дизайна "Riberry" была создана в 2013 году и за это*/}
+											{/*время нами было спроектировано свыше 200 объектов как на*/}
+											{/*территории Азербайджана, так и в России, а отзывы*/}
+											{/*благодарных клиентов внушают нам уверенность и дают право*/}
+											{/*называть себя профессионалами в сфере дизайна и архитектуры!*/}
+										</p>
+										<p>
+											{t(
+												'By contacting "Riberry" you can be sure that you will get exactly what you wanted! Our philosophy is to strive to ensure that the result exceeds the expectations of the client, which is why the studio works in different styles and directions, so that each client can find with us what he will like!'
+											)}
+											{/*Обращаясь в "Riberry" Вы можете быть уверены, что получите*/}
+											{/*именно то, что хотели! Наша философия - стремиться к тому,*/}
+											{/*чтобы результат превзошел ожидания клиента, именно поэтому*/}
+											{/*студия работает в разных стилях и направлениях, чтобы каждый*/}
+											{/*клиент смог отыскать у нас то, что придется ему по душе!*/}
+										</p>
+										<p>
+											{t(
+												'We give guarantees for our work and offer a comprehensive service for the implementation of your turnkey design project by our company.'
+											)}
+											{/*Мы даём гарантии на свои работы и предлагаем комплексную*/}
+											{/*услугу по воплощению Вашего дизайн-проекта "под ключ" нашей*/}
+											{/*компанией.*/}
+										</p>
+										<p>
+											{t(
+												'But the most important thing is love for your work, thanks to which you get a truly high-quality, stylish and beautiful design with well-thought-out ergonomics, placement of furniture, appliances and communications!'
+											)}
+											{/*Но самое главное - это любовь к своей работе,*/}
+											{/*благодаря которой Вы*/}
+										</p>
+										<p>
+											{t(
+												'We are sure that by contacting us, you will be satisfied and will remember with gratitude about our design studio "Riberry"!'
+											)}
+										</p>
+									</>
 								)}
-							</p>
-
-							{readMore && (
-								<>
-									<p>
-										Студия дизайна "Riberry" была создана в 2013 году и за это
-										время нами было спроектировано свыше 200 объектов как на
-										территории Азербайджана, так и в России, а отзывы
-										благодарных клиентов внушают нам уверенность и дают право
-										называть себя профессионалами в сфере дизайна и архитектуры!
-									</p>
-									<p>
-										Обращаясь в "Riberry" Вы можете быть уверены, что получите
-										именно то, что хотели! Наша философия - стремиться к тому,
-										чтобы результат превзошел ожидания клиента, именно поэтому
-										студия работает в разных стилях и направлениях, чтобы каждый
-										клиент смог отыскать у нас то, что придется ему по душе!
-									</p>
-									<p>
-										Мы даём гарантии на свои работы и предлагаем комплексную
-										услугу по воплощению Вашего дизайн-проекта "под ключ" нашей
-										компанией.
-									</p>
-									<p>
-										{' '}
-										Но самое главное - это любовь к своей работе, благодаря
-										которой Вы
-									</p>
-								</>
-							)}
+							</div>
+							<BigMiddleThree images={info.attributes.images} />
 						</div>
-						<BigMiddleThree images={info.attributes.images} />
-					</div>
-					<div className='about-us-bottom__body'>
-						<h2 className='about-us-bottom__body-right__title mobile-title'>
-							Директор и творческий руководитель студии “Riberry”
-						</h2>
-						<div className='about-us-bottom__body-left'>
-							<img
-								src={
-									baseUrl + info.attributes.personPhoto.data[0].attributes.url
-								}
-								alt=''
-							/>
-						</div>
-						<div className='about-us-bottom__body-right'>
-							<h2 className='about-us-bottom__body-right__title'>
-								Директор и творческий руководитель студии “Riberry”
+						<div className='about-us-bottom__body'>
+							<h2 className='about-us-bottom__body-right__title mobile-title'>
+								{t('Director and creative director of the studio "Riberry"')}
 							</h2>
-							<h1 className='about-us-bottom__body__name'>Алина Козлова</h1>
-							<p>Родилась в городе Новосибирск, Россия.</p>
-							<p>
-								В 2011 году окончила Новосибирскую Государственную
-								Архитектурно-художественную Академию (НГАХА) со степенью
-								бакалавра по кафедре градостроительного-ландшафтного
-								проектирования и планирования.
-							</p>
-							<p>
-								После окончания академии переехала в Азербайджан и два года
-								работала на местном рынке города Баку.
-							</p>
-							<p>
-								В 2013 году основала креативную студию интерьерного дизайна
-								"Riberry".
-							</p>
-							<p>
-								За более чем шестилетний срок работы студией было спроектировано
-								более 200 объектов как на территории Азербайджана, так и в
-								России и это далеко не предел!
-							</p>
-							<p>
-								Один из главных принципов фирмы - это вера в то, что КАЖДЫЙ
-								клиент сможет найти у нас то, что он ищет! Именно поэтому,
-								формируя штат своей студии, для меня было важно собрать вместе
-								дизайнеров с различными вкусами и видением!
-							</p>
-							<p>
-								Я искренне верю в то, что самое основное, что ищет клиент,
-								обращаясь в нашу студию - это понимание! Ведь только слушающий и
-								внимательный дизайнер сможет точно понять что нужно именно ВАМ и
-								предложить именно ВАШ уникальный продукт!
-							</p>
-
-							{/*<h2 '>*/}
-							{/*	{info.attributes.title2}*/}
-							{/*</h2>*/}
-							{/*<h1 >*/}
-							{/*	{info.attributes.name}*/}
-							{/*</h1>*/}
-							{/*<ReactMarkdown>{info.attributes.personInfo}</ReactMarkdown>*/}
+							<div className='about-us-bottom__body-left'>
+								<img
+									src={
+										baseUrl + info.attributes.personPhoto.data[0].attributes.url
+									}
+									alt=''
+								/>
+							</div>
+							<div className='about-us-bottom__body-right'>
+								<h2 className='about-us-bottom__body-right__title'>
+									{t('Director and creative director of the studio "Riberry"')}
+								</h2>
+								<h1 className='about-us-bottom__body__name'>
+									{t('Alina Kozlova.')}
+								</h1>
+								<p>{t('She was born in Novosibirsk, Russia.')}</p>
+								<p>
+									{t(
+										"In 2011 she graduated from the Novosibirsk State Academy of Architecture and Art (NSAAA) with a bachelor's degree in the department of urban planning and landscape design and planning."
+									)}
+								</p>
+								<p>
+									{t(
+										'After graduating from the academy, she moved to Azerbaijan and worked for two years in the local market in Baku.'
+									)}
+								</p>
+								<p>
+									{t(
+										'In 2013, she founded the creative studio of interior design "Riberry".'
+									)}
+								</p>
+								<p>
+									{t(
+										'For more than six years of work, the studio has designed more than 200 objects both in Azerbaijan and in Russia, and this is far from the limit!'
+									)}
+								</p>
+								<p>
+									{t(
+										'One of the main principles of the company is the belief that EVERY client can find what he is looking for with us! That is why, when forming the staff of my studio, it was important for me to bring together designers with different tastes and visions!'
+									)}
+								</p>
+								<p>
+									{t(
+										'I sincerely believe that the most basic thing a client is looking for when contacting our studio is understanding! After all, only a listening and attentive designer will be able to understand exactly what YOU need and offer YOUR unique product!'
+									)}
+								</p>
+							</div>
 						</div>
 					</div>
-					{/*<div className='about-us-bottom__body'>*/}
-					{/*    <h2 className='about-us-bottom__body-right__title-mobile'>{info.attributes.title2}</h2>*/}
-					{/*    <div className='about-us-bottom__body-left'>*/}
-					{/*        <img src={baseUrl + info.attributes.personPhoto.data[0].attributes.url} alt=""/>*/}
-					{/*    </div>*/}
-					{/*    <div className='about-us-bottom__body-right'>*/}
-					{/*        <h2 className='about-us-bottom__body-right__title'>{info.attributes.title2}</h2>*/}
-					{/*        <h1 className='about-us-bottom__body__name'>{info.attributes.name}</h1>*/}
-					{/*        <ReactMarkdown>*/}
-					{/*            {info.attributes.personInfo}*/}
-					{/*        </ReactMarkdown>*/}
-					{/*    </div>*/}
-					{/*</div>*/}
-				</div>
+				)
 			)}
 		</>
 	)

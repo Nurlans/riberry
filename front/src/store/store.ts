@@ -7,6 +7,7 @@ import blogsReducer from '../store/reducers/BlogsSlice'
 import blogReducer from '../store/reducers/BlogSlice'
 import filterReducer from '../store/reducers/FilterSlice'
 import burgerMenuReducer from '../store/reducers/BurgerMenuSlice'
+import settingsReducer from '../store/reducers/SettingsSlice'
 
 const rootReducer = combineReducers({
 	blogReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
 	filterReducer,
 	aboutUsReducer,
 	photoByIdReducer,
-	burgerMenuReducer
+	burgerMenuReducer,
+	settingsReducer
 })
 
 export const setupStore = () => {
