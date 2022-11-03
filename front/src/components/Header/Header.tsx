@@ -41,7 +41,6 @@ const Header = () => {
 
 	const setLanguage = (lang: any) => {
 		dispatch(changeLangAction(lang))
-		debugger
 		i18n.changeLanguage(lang, (err, t) => {
 			if (err) return console.log('something went wrong loading', err)
 			t('key') // -> same as i18next.t

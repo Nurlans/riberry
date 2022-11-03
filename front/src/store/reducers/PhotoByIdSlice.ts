@@ -13,7 +13,6 @@ const initialState: PhotoState = {
 		id: 0,
 		attributes: {
 			id: 0,
-			title: '',
 			place_type: '',
 			place_style: '',
 			blockForm: '',
@@ -33,6 +32,12 @@ const initialState: PhotoState = {
 						}
 					}
 				]
+			},
+			item_title: {
+				az: '',
+				ru: '',
+				en: '',
+				id: 0
 			},
 			desc: {
 				az: '',

@@ -7,7 +7,7 @@ interface SettingsState {
 }
 
 const initialState: SettingsState = {
-	lang: Language.az,
+	lang: Language.en,
 	loading: false
 }
 

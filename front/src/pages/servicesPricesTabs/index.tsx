@@ -6,12 +6,13 @@ import InteriorDesign from '../interiorDesign'
 import Architecture from '../architecture'
 import Repair from '../repair'
 import Navigation from '../../components/Navigation/Navigation'
+import { useTranslation } from 'react-i18next'
 
 const baseUrl = 'http://localhost:1337'
 
-const navLinks = [{ id: 1 }, { id: 1 }, { id: 1 }]
 const ServicesPrices = () => {
 	const dispatch = useAppDispatch()
+	const { t, i18n } = useTranslation()
 	const [activeTab, setActiveTab] = useState('tab1')
 	const { burgerMenu } = useAppSelector(state => state.burgerMenuReducer)
 	return (
@@ -26,6 +27,7 @@ const ServicesPrices = () => {
 							className={activeTab === 'tab1' ? 'selected-tab' : ''}
 							onClick={() => setActiveTab('tab1')}
 						>
+							{t('')}
 							Дизайн интерьера
 						</li>
 						<li

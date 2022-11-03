@@ -19,7 +19,6 @@ const Contacts = () => {
 		//localhost:1337/api/items?&pagination[page]=1&pagination[pageSize]=10&populate=*
 		// if (!photos.length) {
 		dispatch(photosByPagination([], [], '', 1))
-		debugger
 		const ourProjects = [
 			...photos
 				?.map(item => item.attributes.images.data)

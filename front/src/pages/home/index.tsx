@@ -54,12 +54,10 @@ const Home = () => {
 			target: { value }
 		} = event
 		if (type === 'selectedType') {
-			debugger
 			if (selectedType.find((item: string) => item === value)) {
 				dispatch(deleteTypeAction(value))
 				// setSelectedType(selectedType.filter((item: string) => item !== value))
 			} else {
-				debugger
 				dispatch(addTypeAction(value))
 				// setSelectedType([...selectedType, value])
 			}

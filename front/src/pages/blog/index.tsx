@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react'
 import Navigation from '../../components/Navigation/Navigation'
 import ReactMarkdown from 'react-markdown'
-import {
-	fetchBlog,
-	fetchInfoAboutUs
-} from '../../store/reducers/ActionCreators'
+import { fetchBlog } from '../../store/reducers/ActionCreators'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { NavLink, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -20,8 +17,9 @@ const Blog = () => {
 	const dispatch = useAppDispatch()
 	const { blog } = useAppSelector(state => state.blogReducer)
 	const { blogs } = useAppSelector(state => state.blogsReducer)
-	const screenWidth = window.screen.width
 	const { burgerMenu } = useAppSelector(state => state.burgerMenuReducer)
+	const { lang } = useAppSelector(state => state.settingsReducer)
+	const screenWidth = window.screen.width
 
 	useEffect(() => {
 		dispatch(fetchBlog(params.id))
@@ -47,7 +45,7 @@ const Blog = () => {
 						<div className='one-blog__description'>
 							<div className='one-blog__date'>{blog.attributes.blog_date}</div>
 							<h2 className='one-blog__title'>{blog.attributes.blog_title}</h2>
-							<ReactMarkdown>{blog.attributes.blog_description}</ReactMarkdown>
+							<ReactMarkdown>{blog.attributes.blog_desc[lang]}</ReactMarkdown>
 						</div>
 					</div>
 					<div className='another-blogs'>

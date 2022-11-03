@@ -3,6 +3,7 @@ import './index.scss'
 import { IStage } from '../../models/IStages'
 import ReactMarkdown from 'react-markdown'
 import { useTranslation } from 'react-i18next'
+import { useAppSelector } from '../../hooks/redux'
 
 const baseUrl = 'http://localhost:1337'
 
@@ -12,6 +13,7 @@ interface PriceInfoStageProps {
 
 const PriceInfoStage = ({ stage }: PriceInfoStageProps) => {
 	const { t } = useTranslation()
+	const { lang } = useAppSelector(state => state.settingsReducer)
 	return (
 		<div className='stage'>
 			<div className='stage-number'>
@@ -22,10 +24,14 @@ const PriceInfoStage = ({ stage }: PriceInfoStageProps) => {
 			<div className='stage-body'>
 				<div className='stage-body__left'>
 					<div className='stage-number-large'>
-						<div>ЭТАП {stage.attributes.stage}</div>
+						<div>
+							{t('Stage')} {stage.attributes.stage}
+						</div>
 					</div>
-					<div className='stage-title'>{stage.attributes.stage_title}</div>
-					<ReactMarkdown>{stage.attributes.stage_description}</ReactMarkdown>
+					<div className='stage-title'>
+						{stage.attributes.stage_title?.[lang]}
+					</div>
+					<ReactMarkdown>{stage.attributes.stage_desc?.[lang]}</ReactMarkdown>
 				</div>
 				<div className='stage-body__right'>
 					<img

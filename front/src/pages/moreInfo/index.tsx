@@ -83,12 +83,12 @@ const MoreInfo = () => {
 			</div>
 			<div className='about-repair'>
 				<div className='about-repair__title'>
-					{photosById.attributes?.title}, {photosById.attributes?.city},{' '}
-					{photosById.attributes?.area} m²
+					{photosById.attributes?.item_title?.[lang]},{' '}
+					{photosById.attributes?.city}, {photosById.attributes?.area} m²
 				</div>
 
 				<div className='about-repair__description'>
-					<ReactMarkdown>{photosById.attributes?.description}</ReactMarkdown>
+					<ReactMarkdown>{photosById.attributes?.desc[lang]}</ReactMarkdown>
 				</div>
 			</div>
 		</div>

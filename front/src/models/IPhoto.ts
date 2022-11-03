@@ -1,12 +1,12 @@
 import { IImages } from './IImage'
 import { Language } from '../utils/enum'
-import { IDesc } from './IDesc'
+import { IDesc, ITitle } from './IDesc'
 
 export interface IPhoto {
 	id: number
 	attributes: {
 		id: number
-		title: string
+		item_title: ITitle
 		place_type: string
 		place_style: string
 		blockForm: string

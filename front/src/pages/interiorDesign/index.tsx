@@ -27,7 +27,7 @@ const InteriorDesign = () => {
 				moreInfo: true,
 				to100: '27',
 				from100to200: '18',
-				from200: 'Договор'
+				from200: t('Treaty')
 			},
 			{
 				id: 3,
@@ -36,7 +36,7 @@ const InteriorDesign = () => {
 				moreInfo: true,
 				to100: '35',
 				from100to200: '25',
-				from200: 'Договор'
+				from200: t('Treaty')
 			}
 		],
 		[t]
