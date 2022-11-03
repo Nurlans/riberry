@@ -72,7 +72,7 @@ const Contacts = () => {
 							<li>
 								{t('Address: ')}
 								{/*Адрес: */}
-								Ашуг Молла Джума, 56/2А, Баку
+								{t('56 Ashig Molla Juma, Baku')}
 							</li>
 						</ul>
 						<iframe

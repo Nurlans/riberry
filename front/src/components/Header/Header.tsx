@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Header.scss'
-import { NavLink, useLocation, useParams } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import {
@@ -11,12 +11,9 @@ import {
 	selectNavPage
 } from '../../store/reducers/ActionCreators'
 import SwipeToSlide from '../../utils/swipeSlider'
-import { Language } from '../../utils/enum'
 
 const logo = require('../../assets/logo.svg').default
 const filter = require('../../assets/filter.svg').default
-
-interface HeaderProps {}
 
 const Header = () => {
 	const location = useLocation()

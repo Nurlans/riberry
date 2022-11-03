@@ -45,7 +45,7 @@ const Blog = () => {
 						<div className='one-blog__description'>
 							<div className='one-blog__date'>{blog.attributes.blog_date}</div>
 							<h2 className='one-blog__title'>{blog.attributes.blog_title}</h2>
-							<ReactMarkdown>{blog.attributes.blog_desc[lang]}</ReactMarkdown>
+							<ReactMarkdown>{blog.attributes.blog_desc?.[lang]}</ReactMarkdown>
 						</div>
 					</div>
 					<div className='another-blogs'>

@@ -23,7 +23,7 @@ const SwipeToSlide = ({
 		centerPadding: '10px',
 		slidesToShow: 3,
 		swipeToSlide: true,
-		arrows: false,
+		arrows: true,
 		centerMode: true,
 		slidesToScroll: 4
 	}
