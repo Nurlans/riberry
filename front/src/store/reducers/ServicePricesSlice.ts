@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { fetchServicePricesStages } from './ActionCreators'
+import {
+	fetchArchStages,
+	fetchRepairStages,
+	fetchServicePricesStages
+} from './ActionCreators'
 import { IStage, IStages } from '../../models/IStages'
 
 interface PhotoState {
@@ -15,17 +19,15 @@ const initialState: PhotoState = {
 			attributes: {
 				stage: '0',
 				stage_image: {
-					data: [
-						{
-							id: '',
-							attributes: {
-								name: '',
-								width: 0,
-								height: 0,
-								url: ''
-							}
+					data: {
+						id: '',
+						attributes: {
+							name: '',
+							width: 0,
+							height: 0,
+							url: ''
 						}
-					]
+					}
 				},
 				stage_desc: {
 					az: '',
@@ -62,6 +64,39 @@ export const stageSlice = createSlice({
 			state.isLoading = true
 		},
 		[fetchServicePricesStages.rejected.type]: (
+			state,
+			action: PayloadAction<string>
+		) => {
+			state.isLoading = false
+			state.error = action.payload
+		},
+		[fetchArchStages.fulfilled.type]: (
+			state,
+			action: PayloadAction<IStage[]>
+		) => {
+			state.isLoading = false
+			state.error = ''
+			state.stages = action.payload
+		},
+		[fetchArchStages.pending.type]: state => {
+			state.isLoading = true
+		},
+		[fetchArchStages.rejected.type]: (state, action: PayloadAction<string>) => {
+			state.isLoading = false
+			state.error = action.payload
+		},
+		[fetchRepairStages.fulfilled.type]: (
+			state,
+			action: PayloadAction<IStage[]>
+		) => {
+			state.isLoading = false
+			state.error = ''
+			state.stages = action.payload
+		},
+		[fetchRepairStages.pending.type]: state => {
+			state.isLoading = true
+		},
+		[fetchRepairStages.rejected.type]: (
 			state,
 			action: PayloadAction<string>
 		) => {

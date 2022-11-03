@@ -9,17 +9,15 @@ export interface IStage {
 	attributes: {
 		stage: string
 		stage_image: {
-			data: [
-				{
-					id: string
-					attributes: {
-						name: string
-						width: number
-						height: number
-						url: string
-					}
+			data: {
+				id: string
+				attributes: {
+					name: string
+					width: number
+					height: number
+					url: string
 				}
-			]
+			}
 		}
 		stage_desc: IDesc
 		stage_title: ITitle

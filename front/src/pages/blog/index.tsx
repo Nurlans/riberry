@@ -49,7 +49,7 @@ const Blog = () => {
 						</div>
 					</div>
 					<div className='another-blogs'>
-						<h3 className='another-blogs__title'>Другие блоги</h3>
+						<h3 className='another-blogs__title'>{t('Other blogs')}</h3>
 						<div className='another-blogs__item'>
 							{blogs.slice(0, screenWidth < 1920 ? 3 : 5).map(blog => (
 								<NavLink

@@ -3,7 +3,10 @@ import PriceInfoBlock from '../../components/PriceInfoBlock'
 import './index.scss'
 import PriceInfoStage from '../../components/PriceInfoStage'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { fetchServicePricesStages } from '../../store/reducers/ActionCreators'
+import {
+	fetchRepairStages,
+	fetchServicePricesStages
+} from '../../store/reducers/ActionCreators'
 import { IStage } from '../../models/IStages'
 
 const priceBlocks = [
@@ -15,7 +18,7 @@ const Repair = () => {
 		state => state.stageReducer
 	)
 	useEffect(() => {
-		dispatch(fetchServicePricesStages())
+		dispatch(fetchRepairStages())
 	}, [])
 	return isLoading ? (
 		<>Loading...</>

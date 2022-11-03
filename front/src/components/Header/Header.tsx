@@ -73,7 +73,7 @@ const Header = () => {
 								value={selectedLanguage}
 								onChange={handleSelectChange}
 							>
-								<option value='ru'>Ru</option>
+								<option value='ru'>Ру</option>
 								<option value='az'>Az</option>
 								<option value='en'>En</option>
 							</select>
@@ -116,7 +116,7 @@ const Header = () => {
 										value={selectedLanguage}
 										onChange={handleSelectChange}
 									>
-										<option value='ru'>Ru</option>
+										<option value='ru'>Ру</option>
 										<option value='az'>Az</option>
 										<option value='en'>En</option>
 									</select>
@@ -142,7 +142,7 @@ const Header = () => {
 								value={selectedLanguage}
 								onChange={handleSelectChange}
 							>
-								<option value='ru'>Ru</option>
+								<option value='ru'>Ру</option>
 								<option value='az'>Az</option>
 								<option value='en'>En</option>
 							</select>

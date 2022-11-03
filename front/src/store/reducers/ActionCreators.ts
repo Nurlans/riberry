@@ -172,6 +172,26 @@ export const fetchServicePricesStages = createAsyncThunk(
 		return response.data.data
 	}
 )
+export const fetchArchStages = createAsyncThunk(
+	'servicePrices/arch',
+
+	async (_, thunkApi) => {
+		const response = await axios.get<IAboutUsResponse>(
+			baseUrl + 'architectures?populate=*'
+		)
+		return response.data.data
+	}
+)
+export const fetchRepairStages = createAsyncThunk(
+	'servicePrices/repair',
+
+	async (_, thunkApi) => {
+		const response = await axios.get<IAboutUsResponse>(
+			baseUrl + 'repairs?populate=*'
+		)
+		return response.data.data
+	}
+)
 export const fetchBlogs = createAsyncThunk('blogs', async (_, thunkApi) => {
 	const response = await axios.get<IAboutUsResponse>(
 		baseUrl + 'blogs?populate=*'

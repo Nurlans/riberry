@@ -27,20 +27,19 @@ const ServicesPrices = () => {
 							className={activeTab === 'tab1' ? 'selected-tab' : ''}
 							onClick={() => setActiveTab('tab1')}
 						>
-							{t('')}
-							Дизайн интерьера
+							{t('Interior design')}
 						</li>
 						<li
 							className={activeTab === 'tab2' ? 'selected-tab' : ''}
 							onClick={() => setActiveTab('tab2')}
 						>
-							Архитектура, ланшафтный дизайн
+							{t('Architecture, landscape design')}
 						</li>
 						<li
 							className={activeTab === 'tab3' ? 'selected-tab' : ''}
 							onClick={() => setActiveTab('tab3')}
 						>
-							Ремонт
+							{t('Repair')}
 						</li>
 					</ul>
 					<div className='outlet'>

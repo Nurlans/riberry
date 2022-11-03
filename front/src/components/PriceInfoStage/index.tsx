@@ -35,7 +35,7 @@ const PriceInfoStage = ({ stage }: PriceInfoStageProps) => {
 				</div>
 				<div className='stage-body__right'>
 					<img
-						src={baseUrl + stage.attributes.stage_image.data[0].attributes.url}
+						src={baseUrl + stage.attributes.stage_image?.data?.attributes.url}
 						alt=''
 					/>
 				</div>

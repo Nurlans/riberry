@@ -46,13 +46,6 @@ export const interiorPlaceStyle = [
 	{ id: 20, value: 'Библиотека' }
 ]
 
-const kindOfPlace = [
-	{ id: 1, value: 'interior' },
-	{ id: 2, value: 'public' },
-	{ id: 3, value: 'landscape' },
-	{ id: 4, value: 'realization' }
-]
-
 export const publicPlaceType = [
 	{ id: 1, value: 'Hamam' },
 	{ id: 2, value: 'Beauty salon' },

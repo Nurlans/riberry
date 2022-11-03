@@ -3,7 +3,10 @@ import PriceInfoBlock from '../../components/PriceInfoBlock'
 import { IStage } from '../../models/IStages'
 import PriceInfoStage from '../../components/PriceInfoStage'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { fetchServicePricesStages } from '../../store/reducers/ActionCreators'
+import {
+	fetchArchStages,
+	fetchServicePricesStages
+} from '../../store/reducers/ActionCreators'
 import { useTranslation } from 'react-i18next'
 
 const Architecture = () => {
@@ -13,7 +16,7 @@ const Architecture = () => {
 	const dispatch = useAppDispatch()
 	const { t } = useTranslation()
 	useEffect(() => {
-		dispatch(fetchServicePricesStages())
+		dispatch(fetchArchStages())
 	}, [])
 	const priceBlocks = [
 		{ id: 1, title: t('Planning (1 m²)'), price: 12, moreInfo: false },
