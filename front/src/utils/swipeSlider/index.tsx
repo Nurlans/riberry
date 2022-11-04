@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom'
 import { selectNavPage } from '../../store/reducers/ActionCreators'
 import { useAppDispatch } from '../../hooks/redux'
 import './index.scss'
-
+const doubleLeft = require('../../assets/double-left.png')
+const doubleRight = require('../../assets/double-right.png')
 interface SwipeToSlideProps {
 	headerLinks: { id: number; title: string; path: string }[]
 	setIsActive: Dispatch<SetStateAction<number>>
@@ -20,12 +21,15 @@ const SwipeToSlide = ({
 	const settings = {
 		className: 'center',
 		infinite: true,
+		prevArrow: <img src={doubleLeft} alt='' />,
+		nextArrow: <img src={doubleRight} alt='' />,
+
 		centerPadding: '10px',
 		slidesToShow: 3,
 		swipeToSlide: true,
-		arrows: true,
+		// arrows: true,
 		centerMode: true,
-		slidesToScroll: 4
+		slidesToScroll: 10
 	}
 
 	return (

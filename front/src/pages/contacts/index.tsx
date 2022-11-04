@@ -10,34 +10,36 @@ import { photosByPagination } from '../../store/reducers/ActionCreators'
 const Contacts = () => {
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
+	const [sliderItems, setSliderItems] = useState<any>([])
 	const { photos, error, isLoading, selectedNavPage } = useAppSelector(
 		state => state.photoReducer
 	)
-	const [ourProjects, setOurProjects] = useState<any>([])
+	const { burgerMenu, showFilter } = useAppSelector(
+		state => state.burgerMenuReducer
+	)
+	useEffect(() => {
+		dispatch(photosByPagination([], [], '', 1))
+	}, [])
 
 	useEffect(() => {
-		//localhost:1337/api/items?&pagination[page]=1&pagination[pageSize]=10&populate=*
-		// if (!photos.length) {
-		dispatch(photosByPagination([], [], '', 1))
-		const ourProjects = [
+		let ourProjects = [
 			...photos
 				?.map(item => item.attributes.images.data)
-				.map(photos => photos.map(i => i.attributes.url))
+				.map(p => p.map(i => i.attributes.url))
 		]
 		let sliderItems = [].concat.apply(
 			[],
 			ourProjects.map((i: any) => i)
 		)
-		setOurProjects(sliderItems)
-	}, [])
+		setSliderItems(sliderItems)
+	}, [photos])
 	// let sliderItems: any[] = []
 	// sliderItems = [].concat.apply(
 	// 	[],
 	// 	ourProjects.map((i: any) => i)
 	// )
-	const { burgerMenu, showFilter } = useAppSelector(
-		state => state.burgerMenuReducer
-	)
+
+	console.log(photos, 'photos')
 
 	return (
 		<>
@@ -85,10 +87,10 @@ const Contacts = () => {
 							loading='lazy'
 							referrerPolicy='no-referrer-when-downgrade'
 						></iframe>
-						<h4 className='contacts-our-projects'> Наши проекты </h4>
-						{ourProjects.length ? (
+						<h4 className='contacts-our-projects'>Наши проекты </h4>
+						{sliderItems.length ? (
 							<div className='slider__wrapper'>
-								<SliderComponent sliderItems={ourProjects} />
+								<SliderComponent sliderItems={sliderItems} />
 							</div>
 						) : null}
 					</div>

@@ -47,10 +47,10 @@ const MoreInfo = () => {
 					</div>
 				</div>
 				<div className='about-repair__mobile-top__desc'>
-					{photosById.attributes.desc[lang]?.length > 100 && readMore
-						? photosById.attributes.desc[lang]
-						: photosById.attributes.desc[lang]?.slice(0, 100)}
-					{!readMore && photosById.attributes.description && (
+					{photosById.attributes.desc?.[lang]?.length > 100 && readMore
+						? photosById.attributes.desc?.[lang]
+						: photosById.attributes.desc?.[lang]?.slice(0, 100)}
+					{!readMore && photosById.attributes.desc?.[lang] && (
 						<span
 							onClick={() => setReadMore(true)}
 							className='about-repair__mobile-top__desc-more'
@@ -88,7 +88,7 @@ const MoreInfo = () => {
 				</div>
 
 				<div className='about-repair__description'>
-					<ReactMarkdown>{photosById.attributes?.desc[lang]}</ReactMarkdown>
+					<ReactMarkdown>{photosById.attributes?.desc?.[lang]}</ReactMarkdown>
 				</div>
 			</div>
 		</div>

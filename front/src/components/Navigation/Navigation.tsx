@@ -122,7 +122,7 @@ const Navigation = ({
 						}
 						key={type.id}
 					>
-						{type.value}
+						{t(`${type.value}`)}
 					</div>
 				))}
 			</>
@@ -136,7 +136,7 @@ const Navigation = ({
 							checked={!!selectedType.find(item => item === type.value)}
 							type='checkbox'
 						/>
-						{type.value}
+						{t(`${type.value}`)}
 					</li>
 				))}
 			</>
@@ -168,7 +168,9 @@ const Navigation = ({
 						}
 						key={type.id}
 					>
-						{type.value}
+						{t(`${type.value}`)}
+
+						{/*{type.value}*/}
 					</div>
 				))}
 			</>
@@ -182,7 +184,8 @@ const Navigation = ({
 							checked={!!selectedStyle.find(item => item === type.value)}
 							type='checkbox'
 						/>
-						{type.value}
+						{/*{type.value}*/}
+						{t(`${type.value}`)}
 					</li>
 				))}
 			</>
