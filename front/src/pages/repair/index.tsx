@@ -9,15 +9,22 @@ import {
 } from '../../store/reducers/ActionCreators'
 import { IStage } from '../../models/IStages'
 import Loader from '../../components/Loader/Loader'
+import { useTranslation } from 'react-i18next'
 
-const priceBlocks = [
-	{ id: 1, title: 'Работа и материал  (1 м²)', price: 500, moreInfo: false }
-]
 const Repair = () => {
 	const dispatch = useAppDispatch()
+	const { t } = useTranslation()
 	const { stages, error, isLoading } = useAppSelector(
 		state => state.stageReducer
 	)
+	const priceBlocks = [
+		{
+			id: 1,
+			title: t('Work and materials (1 м²)'),
+			price: 500,
+			moreInfo: false
+		}
+	]
 	useEffect(() => {
 		dispatch(fetchRepairStages())
 	}, [])
