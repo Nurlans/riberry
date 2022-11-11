@@ -8,6 +8,7 @@ import {
 	fetchServicePricesStages
 } from '../../store/reducers/ActionCreators'
 import { IStage } from '../../models/IStages'
+import Loader from '../../components/Loader/Loader'
 
 const priceBlocks = [
 	{ id: 1, title: 'Работа и материал  (1 м²)', price: 500, moreInfo: false }
@@ -21,7 +22,7 @@ const Repair = () => {
 		dispatch(fetchRepairStages())
 	}, [])
 	return isLoading ? (
-		<>Loading...</>
+		<Loader />
 	) : (
 		<div>
 			<div className='price-info-wrapper'>

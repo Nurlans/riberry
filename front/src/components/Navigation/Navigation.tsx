@@ -131,11 +131,13 @@ const Navigation = ({
 				{typesForShow.map((type: { id: number; value: string }) => (
 					<li key={type.id}>
 						<input
+							id={`checkbox${type.id}`}
 							value={type.value}
 							onChange={e => handleChange(e, 'selectedType')}
 							checked={!!selectedType.find(item => item === type.value)}
 							type='checkbox'
 						/>
+						<label htmlFor={`checkbox${type.id}`} />
 						{t(`${type.value}`)}
 					</li>
 				))}
@@ -179,12 +181,13 @@ const Navigation = ({
 				{stylesForShow.map((type: { id: number; value: string }) => (
 					<li key={type.id}>
 						<input
+							id={`checkboxStyle${type.id}`}
 							value={type.value}
 							onChange={e => handleChange(e, 'selectedStyle')}
 							checked={!!selectedStyle.find(item => item === type.value)}
 							type='checkbox'
 						/>
-						{/*{type.value}*/}
+						<label htmlFor={`checkboxStyle${type.id}`} />
 						{t(`${type.value}`)}
 					</li>
 				))}
@@ -240,7 +243,7 @@ const Navigation = ({
 										}}
 										className='filter-place-type__cancel'
 									>
-										<u>Отменить всё</u>
+										<u>{t('Cancel All')}</u>
 									</div>
 								)}
 								{location && placeTypeByPath(location?.pathname)}
@@ -251,7 +254,7 @@ const Navigation = ({
 								className='show-all-filter-btn'
 								onClick={() => setShowAllTypeFilters(true)}
 							>
-								<u>Ещё</u>
+								<u>{t('More')}</u>
 							</button>
 						)}
 						<div
@@ -279,7 +282,7 @@ const Navigation = ({
 										}}
 										className='filter-place-type__cancel'
 									>
-										<u>Отменить всё</u>
+										<u>{t('Cancel All')}</u>
 									</div>
 								)}
 								{location && placeStyleByPath(location?.pathname)}
@@ -291,7 +294,7 @@ const Navigation = ({
 								setShowAllStyleFilters(true)
 							}}
 						>
-							{!showAllStyleFilters && showStyles && <u>Ещё</u>}
+							{!showAllStyleFilters && showStyles && <u>{t('More')}</u>}
 						</button>
 					</div>
 				)}

@@ -38,8 +38,8 @@ export const photoSlice = createSlice({
 				}
 				state.isLoading = false
 				state.error = ''
-				state.rightPhotos = subarray[1]
 				state.photos = subarray[0]
+				state.rightPhotos = subarray[1]
 				// state.photos = action.payload.data
 				state.pageCount = action.payload.meta.pagination.pageCount
 			} else {
@@ -67,7 +67,6 @@ export const photoSlice = createSlice({
 				for (let i = 0; i < Math.ceil(action.payload.data.length / size); i++) {
 					subarray[i] = action.payload.data.slice(i * size, i * size + size)
 				}
-
 				state.error = ''
 				state.rightPhotos = state.rightPhotos.concat(subarray[1])
 				state.photos = state.photos.concat(subarray[0])

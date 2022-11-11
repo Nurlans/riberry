@@ -6,6 +6,7 @@ import './index.scss'
 import ReactMarkdown from 'react-markdown'
 import Navigation from '../../components/Navigation/Navigation'
 import { useTranslation } from 'react-i18next'
+import Loader from '../../components/Loader/Loader'
 
 const baseUrl = 'http://localhost:1337'
 
@@ -23,7 +24,7 @@ const AboutUs = () => {
 		<>
 			<Navigation />
 			{isLoading ? (
-				<>Loading...</>
+				<Loader />
 			) : (
 				!burgerMenu && (
 					<div className='about-us'>

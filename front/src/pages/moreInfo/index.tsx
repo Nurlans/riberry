@@ -6,6 +6,7 @@ import './index.scss'
 import ReactMarkdown from 'react-markdown'
 import ImageGallery from 'react-image-gallery'
 import { useTranslation } from 'react-i18next'
+import Loader from '../../components/Loader/Loader'
 
 const arrowLeft = require('../../assets/arrow-left.svg').default
 const closeBtn = require('../../assets/closeBtn.svg').default
@@ -33,7 +34,7 @@ const MoreInfo = () => {
 		dispatch(fetchPhotoById(params.id))
 	}, [])
 	return isLoading ? (
-		<> Loading..</>
+		<Loader />
 	) : (
 		<div className='about-repair__wrapper'>
 			<div className='about-repair__mobile'>

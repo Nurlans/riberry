@@ -8,6 +8,7 @@ import {
 	fetchServicePricesStages
 } from '../../store/reducers/ActionCreators'
 import { useTranslation } from 'react-i18next'
+import Loader from '../../components/Loader/Loader'
 
 const Architecture = () => {
 	const { stages, error, isLoading } = useAppSelector(
@@ -35,7 +36,7 @@ const Architecture = () => {
 		}
 	]
 	return isLoading ? (
-		<>Loading..</>
+		<Loader />
 	) : (
 		<div>
 			<div className='price-info-wrapper'>

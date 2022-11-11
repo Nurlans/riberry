@@ -1,5 +1,4 @@
 import { IImages } from './IImage'
-import { Language } from '../utils/enum'
 import { IDesc, ITitle } from './IDesc'
 
 export interface IPhoto {

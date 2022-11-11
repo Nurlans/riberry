@@ -25,6 +25,7 @@ import DoubleBlock from '../../components/BlockForm/DoubleBlock'
 import { CONFIG } from '../../config'
 import OneImgBlock from '../../components/BlockForm/OneImgBlock'
 import TripleSameBlock from '../../components/TripleSameBlock'
+import Loader from '../../components/Loader/Loader'
 
 const arrowBack = require('../../assets/arrow-left.svg').default
 const close_btn = require('../../assets/close_btn.svg').default
@@ -117,11 +118,10 @@ const Home = () => {
 		observer.current = new IntersectionObserver(callback)
 		observer.current.observe(lastElement.current)
 	}, [isLoading])
-
 	return (
 		<>
 			{isLoading && (!photos?.length || !rightPhotos?.length) ? (
-				<>Loading..</>
+				<Loader />
 			) : (
 				<>
 					<Navigation
@@ -286,101 +286,104 @@ const Home = () => {
 											}
 										})}
 									</div>
-									<div className='right-column'>
-										{rightPhotos?.map((item: IPhoto, i: number) => {
-											if (i % 5 === 0) {
-												return (
-													<div key={item?.id} className='right-block '>
-														<NavLink
-															className='img-wrapper'
-															to={`/moreInfo/${item?.id}`}
-														>
-															<TripleBigTop
-																item={item}
-																baseUrl={CONFIG.baseUrl}
-															/>
-															{!burgerMenu && !showFilter && (
-																<InfoBlock item={item} />
-															)}
-														</NavLink>
-													</div>
-												)
-											} else if (i % 5 === 1) {
-												return (
-													<div key={item?.id} className='right-block '>
-														<NavLink
-															className='img-wrapper'
-															to={`/moreInfo/${item?.id}`}
-														>
-															<TripleBigTop
-																item={item}
-																baseUrl={CONFIG.baseUrl}
-																reverse
-															/>
+									{rightPhotos?.length && (
+										<div className='right-column'>
+											{rightPhotos.length &&
+												rightPhotos?.map((item: IPhoto, i: number) => {
+													if (i % 5 === 0) {
+														return (
+															<div key={item?.id} className='right-block '>
+																<NavLink
+																	className='img-wrapper'
+																	to={`/moreInfo/${item?.id}`}
+																>
+																	<TripleBigTop
+																		item={item}
+																		baseUrl={CONFIG.baseUrl}
+																	/>
+																	{!burgerMenu && !showFilter && (
+																		<InfoBlock item={item} />
+																	)}
+																</NavLink>
+															</div>
+														)
+													} else if (i % 5 === 1) {
+														return (
+															<div key={item?.id} className='right-block '>
+																<NavLink
+																	className='img-wrapper'
+																	to={`/moreInfo/${item?.id}`}
+																>
+																	<TripleBigTop
+																		item={item}
+																		baseUrl={CONFIG.baseUrl}
+																		reverse
+																	/>
 
-															{!burgerMenu && !showFilter && (
-																<InfoBlock item={item} />
-															)}
-														</NavLink>
-													</div>
-												)
-											} else if (i % 5 === 2) {
-												return (
-													<div key={item?.id} className='right-block '>
-														<NavLink
-															className='img-wrapper'
-															to={`/moreInfo/${item?.id}`}
-														>
-															<OneImgBlock
-																item={item}
-																baseUrl={CONFIG.baseUrl}
-															/>
-															{!burgerMenu && !showFilter && (
-																<InfoBlock item={item} />
-															)}
-														</NavLink>
-													</div>
-												)
-											} else if (i % 5 === 3) {
-												return (
-													<div key={item?.id} className='right-block '>
-														<NavLink
-															className='img-wrapper'
-															to={`/moreInfo/${item?.id}`}
-														>
-															<TripleBigTop
-																item={item}
-																baseUrl={CONFIG.baseUrl}
-																columnReverse
-															/>
-															{!burgerMenu && !showFilter && (
-																<InfoBlock item={item} />
-															)}
-														</NavLink>
-													</div>
-												)
-											} else if (i % 5 === 4) {
-												return (
-													<div key={item?.id} className='right-block '>
-														<NavLink
-															className='img-wrapper'
-															to={`/moreInfo/${item?.id}`}
-														>
-															<TripleBigTop
-																item={item}
-																baseUrl={CONFIG.baseUrl}
-																columnReverse
-																reverse
-															/>
-															{!burgerMenu && !showFilter && (
-																<InfoBlock item={item} />
-															)}
-														</NavLink>
-													</div>
-												)
-											}
-										})}
-									</div>
+																	{!burgerMenu && !showFilter && (
+																		<InfoBlock item={item} />
+																	)}
+																</NavLink>
+															</div>
+														)
+													} else if (i % 5 === 2) {
+														return (
+															<div key={item?.id} className='right-block '>
+																<NavLink
+																	className='img-wrapper'
+																	to={`/moreInfo/${item?.id}`}
+																>
+																	<OneImgBlock
+																		item={item}
+																		baseUrl={CONFIG.baseUrl}
+																	/>
+																	{!burgerMenu && !showFilter && (
+																		<InfoBlock item={item} />
+																	)}
+																</NavLink>
+															</div>
+														)
+													} else if (i % 5 === 3) {
+														return (
+															<div key={item?.id} className='right-block '>
+																<NavLink
+																	className='img-wrapper'
+																	to={`/moreInfo/${item?.id}`}
+																>
+																	<TripleBigTop
+																		item={item}
+																		baseUrl={CONFIG.baseUrl}
+																		columnReverse
+																	/>
+																	{!burgerMenu && !showFilter && (
+																		<InfoBlock item={item} />
+																	)}
+																</NavLink>
+															</div>
+														)
+													} else if (i % 5 === 4) {
+														return (
+															<div key={item?.id} className='right-block '>
+																<NavLink
+																	className='img-wrapper'
+																	to={`/moreInfo/${item?.id}`}
+																>
+																	<TripleBigTop
+																		item={item}
+																		baseUrl={CONFIG.baseUrl}
+																		columnReverse
+																		reverse
+																	/>
+																	{!burgerMenu && !showFilter && (
+																		<InfoBlock item={item} />
+																	)}
+																</NavLink>
+															</div>
+														)
+													}
+												})}
+										</div>
+									)}
 								</>
 							)) ||
 								t('Фото отсутствует')}

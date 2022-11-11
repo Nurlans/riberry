@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { fetchServicePricesStages } from '../../store/reducers/ActionCreators'
 import { IStage } from '../../models/IStages'
 import { useTranslation } from 'react-i18next'
+import Loader from '../../components/Loader/Loader'
 
 const InteriorDesign = () => {
 	const dispatch = useAppDispatch()
@@ -43,7 +44,7 @@ const InteriorDesign = () => {
 	)
 	// const priceBlocks =
 	return isLoading ? (
-		<>Loading...</>
+		<Loader />
 	) : (
 		<>
 			<div className='price-info-wrapper'>

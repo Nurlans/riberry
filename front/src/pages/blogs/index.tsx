@@ -4,6 +4,7 @@ import { fetchBlogs } from '../../store/reducers/ActionCreators'
 import './index.scss'
 import Navigation from '../../components/Navigation/Navigation'
 import { NavLink } from 'react-router-dom'
+import Loader from '../../components/Loader/Loader'
 
 const baseUrl = 'http://localhost:1337'
 
@@ -21,7 +22,7 @@ const Blogs = () => {
 		<>
 			<Navigation />
 			{isLoading ? (
-				<>Loading...</>
+				<Loader />
 			) : (
 				!burgerMenu && (
 					<div className='blogs'>

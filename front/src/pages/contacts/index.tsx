@@ -6,6 +6,7 @@ import SliderComponent from '../../utils/slider'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { useTranslation } from 'react-i18next'
 import { photosByPagination } from '../../store/reducers/ActionCreators'
+import Loader from '../../components/Loader/Loader'
 
 const Contacts = () => {
 	const { t } = useTranslation()
@@ -46,7 +47,7 @@ const Contacts = () => {
 			<Navigation />
 
 			{isLoading ? (
-				<>Loading...</>
+				<Loader />
 			) : (
 				!burgerMenu &&
 				!showFilter && (

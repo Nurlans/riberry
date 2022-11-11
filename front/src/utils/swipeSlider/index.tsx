@@ -11,7 +11,6 @@ interface SwipeToSlideProps {
 	setIsActive: Dispatch<SetStateAction<number>>
 	isActive: number
 }
-
 const SwipeToSlide = ({
 	headerLinks,
 	setIsActive,
@@ -21,13 +20,12 @@ const SwipeToSlide = ({
 	const settings = {
 		className: 'center',
 		infinite: true,
-		prevArrow: <img src={doubleLeft} alt='' />,
-		nextArrow: <img src={doubleRight} alt='' />,
-
+		// prevArrow: <img src={doubleLeft} alt='' />,
+		// nextArrow: <img src={doubleRight} alt='' />,
 		centerPadding: '10px',
 		slidesToShow: 3,
 		swipeToSlide: true,
-		// arrows: true,
+		arrows: false,
 		centerMode: true,
 		slidesToScroll: 10
 	}
